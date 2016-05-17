@@ -3,5 +3,5 @@ Contains python script for generating a Leaflet Air Photo Index and Metadata fro
 
 This collection contains a total of four(4) scripts that are used to generate a leaflet air photo index, metadata, thumbnails, and compressed files, in addition to a master spreadsheet from which the air photo index and metadata scripts pull information.
 
-Information regarding the relationships of these scripts and instructions for using them can be found within this google document: https://docs.google.com/document/d/150ImV4zPiGUekiun7wcQVyS1IVA4zocQ1TzE1qwfjEU/edit#heading=h.94xgklnkah4p
+Information regarding the relationships of these scripts and instructions for using them can be found within this google document: https://docs.google.com/document/d/15C5t9oEDk808uXAyx8PzxzmvWaYHMnQU5fdk2MuaDOA/edit?usp=sharing
 
