@@ -18,12 +18,8 @@ counter=0
 endFlag=0
 while (endFlag < 1):
     t=tif[counter]
-    findFlag=0
-    findcounter=0
     for x in xml:
-        findcounter=findcounter+1
         if t[:-4]==x[:-4]:
-            findFlag=1
             folder.append(t)
             folder.append(x)
             y=os.path.getsize(t)
@@ -48,7 +44,7 @@ while (endFlag < 1):
                     f=0 #once the file size is met clear the file size tally
                     folder=[]		
         else: 
-            if findcounter>=len(xml) and findFlag < 1:
+            if x>=len(xml):
                 print "No xml file found for " , t
                 counter=counter+1
                 if counter>=len(tif):
