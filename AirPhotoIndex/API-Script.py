@@ -4,7 +4,7 @@ import os
 import sys
 
 #SET INPUT AND OUTPUT FILES
-inFile=open('Master Spreadsheet.tsv') #Name of file located in the directory of this script that stores the information
+inFile=open('Master_Spreadsheet-Current.tsv') #Name of file located in the directory of this script that stores the information
 ##input('Input location of the Master Spreadsheet (.tsv) within quotations and press enter: ')
 #Note that the file entered must be a .tsv for this script to work
 outfn='index.html' #Desired name of output file
@@ -31,9 +31,18 @@ for line in content:
     years.append(year) #add the first column [0] to the empty array named years
 markerYears=sorted(set(years)) #Get unique years, and sort them numerically
 markerYears=map(int,markerYears)
+
+#OPEN HTML
+Openhtml='<html> \n \n'
+outFile.write(Openhtml)
+
+#TUTORIAL SECTION
+tutorial=' <button onClick="Tutorial()">Click here for tutorial on how to use the Air Photo Index.</button>\n \n'
+outFile.write(tutorial) #write the html tutorial to the outFile
+
 #HEADER SECTION
-head='<html> \n <head> \n <title>McMaster Aerial Photographic Index</title>\n<meta charset="utf-8" />\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />\n<link rel="stylesheet" type="text/css" href="css/own_style.css">\n<link href="http://loopj.github.io/jquery-simple-slider/css/simple-slider.css" rel="stylesheet" type="text/css" />\n<link rel="stylesheet" href="css/API.css">\n<link rel="stylesheet" href="https://ismyrnow.github.io/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.css">\n<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>\n<script src="data/FIP_bounds.js"></script>\n<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>\n<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>\n<script src="https://ismyrnow.github.io/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.js"></script>\n<script src="js/simple-slider.js"></script>\n<script src="js/control-layers.js"></script>\n<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>\n<link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css" rel="stylesheet" />\n<link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css" rel="stylesheet" />\n<link rel="stylesheet" href="http://eclipse1979.github.io/leaflet.slider/dist/leaflet-slider.css">\n<script src="http://eclipse1979.github.io/leaflet.slider/dist/leaflet-slider.js"></script>\n</head> \n \n'
-outFile.write(head) #write the html header to the outFile
+head='<head> \n <title>McMaster Aerial Photographic Index</title>\n<meta charset="utf-8" />\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />\n<link rel="stylesheet" type="text/css" href="css/own_style.css">\n<link href="http://loopj.github.io/jquery-simple-slider/css/simple-slider.css" rel="stylesheet" type="text/css" />\n<link rel="stylesheet" href="css/API.css">\n<link rel="stylesheet" href="https://ismyrnow.github.io/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.css">\n<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>\n<script src="data/FIP_bounds.js"></script>\n<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>\n<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>\n<script src="https://ismyrnow.github.io/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.js"></script>\n<script src="js/simple-slider.js"></script>\n<script src="js/control-layers.js"></script>\n<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>\n<link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css" rel="stylesheet" />\n<link href="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css" rel="stylesheet" />\n<link rel="stylesheet" href="http://eclipse1979.github.io/leaflet.slider/dist/leaflet-slider.css">\n<script src="http://eclipse1979.github.io/leaflet.slider/dist/leaflet-slider.js"></script>\n<script>\nfunction Tutorial(){\n	window.open("https://docs.google.com/document/d/1RXoMd0Y6GxclMxPsAfXSZrpzTGfuxUDFhVD94DGU6sE/edit","_blank","height=600,width=600,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes")\n}\n</script>\n</head> \n \n'
+outFile.write(head)
 
 #ORTHO AERIAL IMAGES YEARS
 years2=[] #empty array that the years will be appended to
@@ -191,7 +200,7 @@ for x in xrange(0, len(uniqueYears)): #iterates through each year
 		outFile.write(layer) #write Ortho Layer variable in java to the outFile
 		orthoarray.append('\"Hamilton '+str(uniqueYears[x])+'\": Hamilton_'+str(uniqueYears[x]))
 	if uniqueYears[x] in FIPYears:
-		layer = "var FIP_"+str(uniqueYears[x])+" = L.tileLayer('http://tiles.mcmaster.ca/FIP_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
+		layer = "var FIP_"+str(uniqueYears[x])+" = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
 		outFile.write(layer) #write FIP layer variable in java to the outFile
 		bound = "var bound_"+str(uniqueYears[x])+" =L.geoJson(B_"+str(uniqueYears[x])+",{style:{'fillOpacity':0,'opacity':0}});\n" 
 		outFile.write(bound) # write FIP bound variable in java to the outFile 
