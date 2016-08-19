@@ -62,9 +62,9 @@ outFile.write(htmlbody) #write the body html to the outFile
     #ADD TIMESLIDER TO BODY
 uniqueYears=sorted(set(markerYears)|set(orthoYears)|set(FIPYears))
 leng=len(uniqueYears) -1
-timeslider='<fieldset class="align-center"> \n <legend>Time Slider</legend> \n<input type="text" id="slide" data-slider="true" data-slider-values='+",".join(str(i) for i in markerYears)+' data-slider-snap="true" value=1919> \n '
+timeslider='<fieldset class="align-center" id="whatever"> \n <input type="text" id="slide" data-slider="true" data-slider-values='+",".join(str(i) for i in markerYears)+' data-slider-snap="true" value=1919> \n '
 outFile.write(timeslider)
-timesliderclose='<label class="align-left" for=year>'+str(markerYears[0])+'</label><label class="align-right" for=year>'+str(markerYears[-1])+'</label> \n <script> \n $("[data-slider]") \n .each(function () { \n var input = $(this); \n $("<span>") \n .addClass("output") \n .attr("id", "newId") \n .insertAfter($(this)); \n }) \n .bind("slider:ready slider:changed", function (event, data) { \n $(this) \n .nextAll(".output") \n .html(data.value.toFixed(0)); \n }); \n $(document).ready(function()\n{$("body").on("click",":radio",function(evt) {radio(evt.target.layerId);});\n}); \n</script> \n</fieldset>\n</body>\n'
+timesliderclose='<label class="align-left" for=year>'+str(markerYears[0])+'</label><label class="align-right" for=year>'+str(markerYears[-1])+'</label> \n <script> \n $("[data-slider]") \n .each(function () { \n var input = $(this); \n $("<span>") \n .addClass("output") \n .attr("id", "newId") \n .insertAfter($(this)); \n }) \n .bind("slider:ready slider:changed", function (event, data) { \n $(this) \n .nextAll(".output") \n .html(data.value.toFixed(0)); \n }); \n $("<span>").text("Selected year: ").insertBefore($("#newId")); \n $(document).ready(function()\n{$("body").on("click",":radio",function(evt) {radio(evt.target.layerId);});\n}); \n</script> \n</fieldset>\n</body>\n'
 outFile.write(timesliderclose) #Write functions for displaying the value of the timeslider and for obtaining the layer that has been clicked in the layer control window
 
 #BEGIN SCRIPTS

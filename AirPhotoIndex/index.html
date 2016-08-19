@@ -33,9 +33,8 @@ function Tutorial(){
 <body> 
  <div id="map" style="width: 100%; height: 90%"></div> 
  
-<fieldset class="align-center"> 
- <legend>Time Slider</legend> 
-<input type="text" id="slide" data-slider="true" data-slider-values=1919,1927,1934,1943,1950,1951,1952,1953,1954,1955,1956,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1969,1970,1972,1978,1980,1985,1988,1990,1994,1997,1999,2000 data-slider-snap="true" value=1919> 
+<fieldset class="align-center" id="whatever"> 
+ <input type="text" id="slide" data-slider="true" data-slider-values=1919,1927,1934,1943,1950,1951,1952,1953,1954,1955,1956,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1969,1970,1972,1978,1980,1985,1988,1990,1994,1997,1999,2000 data-slider-snap="true" value=1919> 
  <label class="align-left" for=year>1919</label><label class="align-right" for=year>2000</label> 
  <script> 
  $("[data-slider]") 
@@ -51,6 +50,7 @@ function Tutorial(){
  .nextAll(".output") 
  .html(data.value.toFixed(0)); 
  }); 
+ $("<span>").text("Selected year: ").insertBefore($("#newId")); 
  $(document).ready(function()
 {$("body").on("click",":radio",function(evt) {radio(evt.target.layerId);});
 }); 
