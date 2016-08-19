@@ -3,7 +3,7 @@ import shutil
 # This script takes all the tif/xml files in a given directory and copies them into folders so that the total file size of each folder is less than 2 GB.
 # Once all the tif/xml files have been copied to folders, the script then compresses the folders into zip files to be ingested into the digital archive.
 # To use the script, simply put in the directory pathway in single quotations in the line below i.e. dir='PATH'. Then run the script in IDLE.
-dir='H:\Digitization_Projects\Air_Photos\AirPhotos_1950_Hamilton\Code_Test\NEW_CODE_TEST' #Change this to the appropriate directory location where the photos are that you want to compress.
+dir='H:\Digitization_Projects\Air_Photos\Airphotos_1964_Hamilton' #Change this to the appropriate directory location where the photos are that you want to compress.
 os.chdir(dir) #changes the directory to the above - where the script should look for the tif/xml files.
 f=0 #this value will count file sizes
 fzip=[] #this array will contain all files to be moved to a folder
