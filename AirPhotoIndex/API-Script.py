@@ -52,7 +52,7 @@ orthoYears=sorted(set(years2))
 
 #FIP IMAGES YEARS
 years3=[] #empty array that the years will be appended to
-for x in [1898]: ####ADD TO THIS LIST IF MORE LAYERS ARE AVAILABLE on the tile.mcmaster.ca server
+for x in [1898,1911]: ####ADD TO THIS LIST IF MORE LAYERS ARE AVAILABLE on the tile.mcmaster.ca server
       years3.append(x) #add the year to the array if it is equal to a year in the range in the for loop
 FIPYears=sorted(set(years3))
 	  
@@ -200,7 +200,7 @@ for x in xrange(0, len(uniqueYears)): #iterates through each year
 		outFile.write(layer) #write Ortho Layer variable in java to the outFile
 		orthoarray.append('\"Hamilton '+str(uniqueYears[x])+'\": Hamilton_'+str(uniqueYears[x]))
 	if uniqueYears[x] in FIPYears:
-		layer = "var FIP_"+str(uniqueYears[x])+" = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
+		layer = "var FIP_"+str(uniqueYears[x])+" = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});\n"
 		outFile.write(layer) #write FIP layer variable in java to the outFile
 		bound = "var bound_"+str(uniqueYears[x])+" =L.geoJson(B_"+str(uniqueYears[x])+",{style:{'fillOpacity':0,'opacity':0}});\n" 
 		outFile.write(bound) # write FIP bound variable in java to the outFile 

@@ -5207,9 +5207,12 @@ var Markers2000=L.markerClusterGroup({disableClusteringAtZoom:13}).addLayers([Ha
  
 var Hamilton2000=L.featureGroup([Markers2000]); 
  
-var FIP_1898 = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_1898/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});
+var FIP_1898 = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_1898/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});
 var bound_1898 =L.geoJson(B_1898,{style:{'fillOpacity':0,'opacity':0}});
 var FIP1898 =L.featureGroup([FIP_1898, bound_1898]);
+var FIP_1911 = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_1911/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});
+var bound_1911 =L.geoJson(B_1911,{style:{'fillOpacity':0,'opacity':0}});
+var FIP1911 =L.featureGroup([FIP_1911, bound_1911]);
 var Hamilton_1999 = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_1999/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});
 var Hamilton_2002 = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_2002/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});
 var Hamilton_2005 = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_2005/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});
@@ -5228,7 +5231,7 @@ streets =	L.tileLayer(mbUrl2,{id: 'mapbox.high-contrast',maxZoom: 19, attributio
 
 var map=L.map('map', {center:[43.26,-79.89],zoom: 11,layers:[OSMbase]}); 
 
-var FIP=L.featureGroup([bound_1898]); 
+var FIP=L.featureGroup([bound_1898, bound_1911]); 
 map.on('layeradd', function (e) {if (FIP.hasLayer(e.layer)){(map.fitBounds(e.layer.getBounds()))};})
 
 var Years=L.layerGroup([Hamilton1919, Hamilton1927, Hamilton1934, Hamilton1943, Hamilton1950, Hamilton1951, Hamilton1952, Hamilton1953, Hamilton1954, Hamilton1955, Hamilton1956, Hamilton1958, Hamilton1959, Hamilton1960, Hamilton1961, Hamilton1962, Hamilton1963, Hamilton1964, Hamilton1965, Hamilton1966, Hamilton1967, Hamilton1969, Hamilton1970, Hamilton1972, Hamilton1978, Hamilton1980, Hamilton1985, Hamilton1988, Hamilton1990, Hamilton1994, Hamilton1997, Hamilton1999, Hamilton2000]); 
@@ -5236,13 +5239,13 @@ var Years=L.layerGroup([Hamilton1919, Hamilton1927, Hamilton1934, Hamilton1943, 
 var id={1934: Hamilton1934, 1988: Hamilton1988, 1927: Hamilton1927, 1985: Hamilton1985, 1969: Hamilton1969, 1980: Hamilton1980, 1964: Hamilton1964, 1965: Hamilton1965, 1966: Hamilton1966, 1967: Hamilton1967, 1960: Hamilton1960, 1961: Hamilton1961, 1962: Hamilton1962, 1963: Hamilton1963, 1990: Hamilton1990, 1955: Hamilton1955, 1954: Hamilton1954, 1956: Hamilton1956, 1951: Hamilton1951, 1950: Hamilton1950, 1953: Hamilton1953, 1952: Hamilton1952, 1959: Hamilton1959, 1958: Hamilton1958, 1919: Hamilton1919, 1994: Hamilton1994, 1997: Hamilton1997, 1978: Hamilton1978, 1999: Hamilton1999, 1972: Hamilton1972, 1970: Hamilton1970, 2000: Hamilton2000, 1943: Hamilton1943}; 
 var baseLayers = {"OSM": OSMbase,"Grayscale": grayscale,"Streets": streets}; 
 var overlays = {"Ortho Imagery":{"Hamilton 1999": Hamilton_1999, "Hamilton 2002": Hamilton_2002, "Hamilton 2005": Hamilton_2005, "Hamilton 2007": Hamilton_2007, "Hamilton 2010": Hamilton_2010, "Hamilton 2014": Hamilton_2014},
-"Fire Insurance Plans":{"Hamilton 1898": FIP1898}};
+"Fire Insurance Plans":{"Hamilton 1898": FIP1898, "Hamilton 1911": FIP1911}};
 
 var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Ortho Imagery","Fire Insurance Plans"],collapsed:false}).addTo(map); 
 
 L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map); 
 
-slider = L.control.slider(function(value) {Hamilton_1999.setOpacity(value);Hamilton_2002.setOpacity(value);Hamilton_2005.setOpacity(value);Hamilton_2007.setOpacity(value);Hamilton_2010.setOpacity(value);Hamilton_2014.setOpacity(value);FIP_1898.setOpacity(value);},
+slider = L.control.slider(function(value) {Hamilton_1999.setOpacity(value);Hamilton_2002.setOpacity(value);Hamilton_2005.setOpacity(value);Hamilton_2007.setOpacity(value);Hamilton_2010.setOpacity(value);Hamilton_2014.setOpacity(value);FIP_1898.setOpacity(value);FIP_1911.setOpacity(value);},
 {position: "topright",max: 1,value: 1,step:0.05,size: "200px",collapsed: false,id: "slider"}).addTo(map);
 
 function radio(layerid)
