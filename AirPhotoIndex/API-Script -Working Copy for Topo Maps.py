@@ -348,6 +348,7 @@ for x in xrange(0, len(uniqueYears)): #Iterates through each year.
 		layer = "var Hamilton_"+str(uniqueYears[x])+" = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
 		outFile.write(layer) #Writing Ortho Layer variable in java to the outFile.
 		orthoarray.append('\"Hamilton '+str(uniqueYears[x])+'\": Hamilton_'+str(uniqueYears[x]))
+	else: pass
 	if uniqueYears[x] in FIPYears:
 		layer = "var FIP_"+str(uniqueYears[x])+" = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});\n"
 		outFile.write(layer) #Writing FIP layer variable in java to the outFile.
@@ -357,6 +358,7 @@ for x in xrange(0, len(uniqueYears)): #Iterates through each year.
 		outFile.write(FIP)
 		FIPbounds.append('bound_'+str(uniqueYears[x])) # This set of bounds is to be used for dynamic zooming to the level of the FIPs.
 		FIParray.append('\"Hamilton '+str(uniqueYears[x])+'\": FIP'+str(uniqueYears[x]))
+	else: pass
 	
 yearlayers=sorted(set(yearlayers))
 FIPbounds=sorted(set(FIPbounds))
@@ -388,6 +390,8 @@ outFile.write('var overlays = {"Ortho Imagery":{'+str(orthoarrayz)+'},\n"Fire In
 LCGBasemaps='var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Ortho Imagery","Fire Insurance Plans"],collapsed:false}).addTo(map); \n\n' #Adding layer control to the 'map' variable.
 outFile.write(LCGBasemaps)
 
+# WRITING SCRIPT FOR MAP FEATURES. -------------------------------------------------------------------------------------------------------------------------------------------------
+
 # ADD SCALE TO MAP.
 mapScale='L.control.scale({options: {position: \'bottomleft\',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map); \n\n' #Adding a scale bar to the 'map' variable.
 outFile.write(mapScale)
@@ -402,11 +406,11 @@ for x in xrange(0,len(FIPYears)):
 	opacLayer='FIP_'+str(FIPYears[x])+'.setOpacity(value);'
 	outFile.write(opacLayer)
 opacEnd='},\n{position: "topright",max: 1,value: 1,step:0.05,size: "200px",collapsed: false,id: "slider"}).addTo(map);\n\n'
-outFile.write(opacEnd) #Add opacity slider to the map for the orthophotos and FIPs
+outFile.write(opacEnd) #Add opacity slider to the map for the orthophotos and FIPs.
 
 # BASEMAP LAYER CONTROL CHANGE TIMESLIDER VALUE.
 sliderval='function radio(layerid)\n{obj = control._layers[layerid];\nfor(var key in id) {\n  if(id[key] === obj.layer) {$("#slide").simpleSlider("setValue", key);};\n};}\n\n'
-outFile.write(sliderval) #Change the timeslider value based on overlay clicked in layer control
+outFile.write(sliderval) #Change the timeslider value based on overlay clicked in layer control.
 
 # TIMESLIDER SWITCHING BETWEEN YEARS.
 yearswitch='function layer(value) \n  {if (map.hasLayer(id[value])==false) {map.eachLayer(function(layer){if (Years.hasLayer(layer)==true) {map.removeLayer(layer)}}); id[value].addTo(map).bringToFront();}};\n\n'  
