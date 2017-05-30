@@ -348,6 +348,7 @@ for x in xrange(0, len(uniqueYears)): #Iterates through each year.
 		layer = "var Hamilton_"+str(uniqueYears[x])+" = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
 		outFile.write(layer) #Writing Ortho Layer variable in java to the outFile.
 		orthoarray.append('\"Hamilton '+str(uniqueYears[x])+'\": Hamilton_'+str(uniqueYears[x]))
+	else: pass
 	if uniqueYears[x] in FIPYears:
 		layer = "var FIP_"+str(uniqueYears[x])+" = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_"+str(uniqueYears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});\n"
 		outFile.write(layer) #Writing FIP layer variable in java to the outFile.
@@ -357,11 +358,60 @@ for x in xrange(0, len(uniqueYears)): #Iterates through each year.
 		outFile.write(FIP)
 		FIPbounds.append('bound_'+str(uniqueYears[x])) # This set of bounds is to be used for dynamic zooming to the level of the FIPs.
 		FIParray.append('\"Hamilton '+str(uniqueYears[x])+'\": FIP'+str(uniqueYears[x]))
+	else: pass
 	
 yearlayers=sorted(set(yearlayers))
 FIPbounds=sorted(set(FIPbounds))
 orthoarray=sorted(set(orthoarray))
 FIParray=sorted(set(FIParray))
+
+# WRITING SCRIPT FOR TOPOGRAPHICAL MAPS. -------------------------------------------------------------------------------------------------------------------------------------------------
+
+TopographyYear = """
+var Topography1919 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1919/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1927 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1927/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1934 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1934/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1943 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1943/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1950 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1943/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1951 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1943/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1952 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1952/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1953 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1952/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1954 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1952/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1955 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1952/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1956 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1956/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1958 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1956/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1959 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1956/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1960 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1956/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1961 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1956/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1962 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1956/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1963 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1963/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1964 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1963/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1965 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1963/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1966 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1963/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1967 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1963/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1969 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1969/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1970 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1969/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1972 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1972/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1978 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1978/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1980 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1980/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1985 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1985/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1988 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1985/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1990 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1985/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1994 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1994/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1997 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1997/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography1999 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1999/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+var Topography2000 = L.tileLayer('http://perec.mcmaster.ca/maps/topos/1999/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 16});
+"""
+
+TopographyControls = """
+var TopographyToggle = L.tileLayer('');
+var Topography = L.layerGroup([Topography1919, Topography1927, Topography1934, Topography1943, Topography1950, Topography1951, Topography1952, Topography1953, Topography1954, Topography1955, Topography1956, Topography1958, Topography1959, Topography1960, Topography1961, Topography1962, Topography1963, Topography1964, Topography1965, Topography1966, Topography1967, Topography1969, Topography1970, Topography1972, Topography1978, Topography1980, Topography1985, Topography1988, Topography1990, Topography1994, Topography1997, Topography1999, Topography2000]);
+
+var topoid = {1919: Topography1919, 1927: Topography1927, 1934: Topography1934, 1943: Topography1943, 1950: Topography1950, 1951: Topography1951, 1952: Topography1952, 1953: Topography1953, 1954: Topography1954, 1955: Topography1955, 1956: Topography1956, 1958: Topography1958, 1959: Topography1959, 1960: Topography1960, 1961: Topography1961, 1962: Topography1962, 1963: Topography1963, 1964: Topography1964, 1965: Topography1965, 1966: Topography1966, 1967: Topography1967, 1969: Topography1969, 1970: Topography1970, 1972: Topography1972, 1978: Topography1978, 1980: Topography1980, 1985: Topography1985, 1988: Topography1988, 1990: Topography1990, 1994: Topography1994, 1997: Topography1997, 1999: Topography1999, 2000: Topography2000};
+"""
+
+outFile.write(TopographyYear)
+outFile.write(TopographyControls)
 
 # WRITING SCRIPT FOR BASEMAPS. -------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -382,11 +432,13 @@ outFile.write('var id='+str(ids)+'; \n')
 orthoarrayz=str(orthoarray).translate(None,"'").translate(None,"]").translate(None,"[") #Removing single quotations and square brackets from all years in array orthoarray.
 FIParrayz=str(FIParray).translate(None,"'").translate(None,"]").translate(None,"[") #Removing single quotations and square brackets from all years in array FIParray.
 outFile.write('var baseLayers = {"OSM": OSMbase,"Grayscale": grayscale,"Streets": streets}; \n') 
-outFile.write('var overlays = {"Ortho Imagery":{'+str(orthoarrayz)+'},\n"Fire Insurance Plans":{'+str(FIParrayz)+'}};\n\n') #Baselayers and overlays to be used for the basemap layer control.
+outFile.write('var overlays = {"Ortho Imagery":{'+str(orthoarrayz)+'},\n"Fire Insurance Plans":{'+str(FIParrayz)+'},"Topographical Maps":{"Hamilton": TopographyToggle'+'}};\n\n') #Baselayers and overlays to be used for the basemap layer control.
 
 # BASEMAP LAYER CONTROL.
-LCGBasemaps='var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Ortho Imagery","Fire Insurance Plans"],collapsed:false}).addTo(map); \n\n' #Adding layer control to the 'map' variable.
+LCGBasemaps='var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Ortho Imagery","Fire Insurance Plans","Topographical Maps"],collapsed:false}).addTo(map); \n\n' #Adding layer control to the 'map' variable.
 outFile.write(LCGBasemaps)
+
+# WRITING SCRIPT FOR MAP FEATURES. -------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ADD SCALE TO MAP.
 mapScale='L.control.scale({options: {position: \'bottomleft\',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map); \n\n' #Adding a scale bar to the 'map' variable.
@@ -401,15 +453,30 @@ for x in xrange(0,len(orthoYears)):
 for x in xrange(0,len(FIPYears)):
 	opacLayer='FIP_'+str(FIPYears[x])+'.setOpacity(value);'
 	outFile.write(opacLayer)
-opacEnd='},\n{position: "topright",max: 1,value: 1,step:0.05,size: "200px",collapsed: false,id: "slider"}).addTo(map);\n\n'
-outFile.write(opacEnd) #Add opacity slider to the map for the orthophotos and FIPs
+opacEnd='Topography1919.setOpacity(value);Topography1927.setOpacity(value);Topography1934.setOpacity(value);Topography1943.setOpacity(value);Topography1950.setOpacity(value);Topography1951.setOpacity(value);Topography1952.setOpacity(value);Topography1953.setOpacity(value);Topography1954.setOpacity(value);Topography1955.setOpacity(value);Topography1956.setOpacity(value);Topography1958.setOpacity(value);Topography1959.setOpacity(value);Topography1960.setOpacity(value);Topography1961.setOpacity(value);Topography1962.setOpacity(value);Topography1963.setOpacity(value);Topography1964.setOpacity(value);Topography1965.setOpacity(value);Topography1966.setOpacity(value);Topography1967.setOpacity(value);Topography1969.setOpacity(value);Topography1970.setOpacity(value);Topography1972.setOpacity(value);Topography1978.setOpacity(value);Topography1980.setOpacity(value);Topography1985.setOpacity(value);Topography1988.setOpacity(value);Topography1990.setOpacity(value);Topography1994.setOpacity(value);Topography1997.setOpacity(value);Topography1999.setOpacity(value);Topography2000.setOpacity(value);},\n{position: "topright",max: 1,value: 1,step:0.05,size: "200px",collapsed: false,id: "slider"}).addTo(map);\n\n'
+outFile.write(opacEnd) #Add opacity slider to the map for the orthophotos and FIPs.
 
 # BASEMAP LAYER CONTROL CHANGE TIMESLIDER VALUE.
 sliderval='function radio(layerid)\n{obj = control._layers[layerid];\nfor(var key in id) {\n  if(id[key] === obj.layer) {$("#slide").simpleSlider("setValue", key);};\n};}\n\n'
-outFile.write(sliderval) #Change the timeslider value based on overlay clicked in layer control
+outFile.write(sliderval) #Change the timeslider value based on overlay clicked in layer control.
 
 # TIMESLIDER SWITCHING BETWEEN YEARS.
-yearswitch='function layer(value) \n  {if (map.hasLayer(id[value])==false) {map.eachLayer(function(layer){if (Years.hasLayer(layer)==true) {map.removeLayer(layer)}}); id[value].addTo(map).bringToFront();}};\n\n'  
+yearswitch="""
+function layer(value)
+  {if (map.hasLayer(id[value])==false) {map.eachLayer(function(layer){
+		if (Years.hasLayer(layer)==true) {map.removeLayer(layer)}});
+		id[value].addTo(map).bringToFront();};
+	if (map.hasLayer(TopographyToggle)==true) {
+		if (map.hasLayer(topoid[value])==false) {map.eachLayer(function(layer){
+			if (Topography.hasLayer(layer)==true) {map.removeLayer(layer)}});
+			topoid[value].addTo(map).bringToFront();};}
+	if (map.hasLayer(TopographyToggle)==false) {
+		if (map.hasLayer(topoid[value])==true) {map.eachLayer(function(layer){
+			if (Topography.hasLayer(layer)==true) {map.removeLayer(layer)}})
+			}}
+	};
+"""
+
 outFile.write(yearswitch) #Based on timeslider value, add layers to the map.
 
 # TIMESLIDER FUNCTION.
