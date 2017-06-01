@@ -254,6 +254,9 @@ for x in xrange(0, len(markerYears)): #Iterates through each unique year.
 		longitude=item[9]
 		img=item[10]
 		imglink=item[11]
+		citationa=item[37]
+		citationb=item[38]
+		citationc=item[39]
 		cflightline=flightline.translate(None,"-")
 		cflightline=cflightline.translate(None,"?")
 		cflightline=cflightline.translate(None,"/")
@@ -286,6 +289,9 @@ for x in xrange(0, len(markerYears)): #Iterates through each unique year.
 		longitude=item[9]
 		img=item[10]
 		dArchive=item[11]
+		citationa=item[37]
+		citationb=item[38]
+		citationc=item[39]
 		cflightline=flightline.translate(None,"-")
 		cphoto=photo.translate(None," ")
 		cphoto=cphoto.translate(None,"[")
@@ -317,7 +323,7 @@ for x in xrange(0, len(markerYears)): #Iterates through each unique year.
 
 		for y in xrange (0, len(yfl)):
 			if flightline==yfl[y] and str(markerYears[x])==year:
-				markers='var '+str(ID)+str(markerYears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(dateother)+'"}).bindPopup(\''+str(imgsrc)+'<strong>Set Name</strong> '+str(ID)+' '+str(dateother)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> '+str(dalink)+'\'); \n'
+				markers='var '+str(ID)+str(markerYears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(dateother)+'"}).bindPopup(\''+str(imgsrc)+'<strong>Set Name</strong> '+str(ID)+' '+str(dateother)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(dalink)+'\'); \n'
 				outFile.write(markers)
 				markerarray.append(str(str(ID)+str(markerYears[x]))+str(cflightline)+str(cphoto)+str(iTitle)) #Writing name of the marker above to the marker array.
 			else: pass
