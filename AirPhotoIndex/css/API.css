@@ -1,30 +1,50 @@
 .slider {
-  width: 97%;
+  width: 98%;
   margin-right: auto !important;
-    margin-left: auto !important;
+  margin-left: auto !important;
+  margin-top: 0px;
+  margin-bottom: 12px;
 }
 .slider > .dragger {
-  background: #EBEBEB;
-  background: linear-gradient(top, #8DCA09, #72A307);
-  box-shadow: inset 0 2px 2px rgba(255,255,255,0.5), 0 2px 8px rgba(0,0,0,0.2);
-  border-radius: 0px;
-  border: 1px solid #8F8F8F;
-  width: 50px;
-  height: 25px;
-  margin-top: -14.5px !important;
-  float: right;
+  background: grey;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px !important;
+  -webkit-box-shadow: none;
+  left: 200px;
+  border: none;
+  border-radius: 50px;
 }
 .slider > .dragger:hover {
-    background: -webkit-linear-gradient(top, #E4E2E2, #D0CFCF);
+	background: black;
+	opacity:0.5;
+}
+
+.slider > .track, .slider > .highlight-track {
+  background: #ccc;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: 10px;
+
+  border: 3px solid #bbb;
+  height: 4px;
+}
+
+.slider > .highlight-track {
+	background-color: #8DCA09;
+	border-color: none;
 }
 
 .slider> .track> .ticks {
-	border-left: 1px solid #999;
-    width: 1.2em;
-    height: .5em;
-	text-align: center;
+	border-left: 1.5px solid #888;
+    width: 1em;
+    height: 0.85em;
+	text-align: right;
 	z-index: -1;
-	position:absolute;
+	position: absolute;
 }
 .output {
 	color: #000;
@@ -32,28 +52,28 @@
     width: 100%;
     padding: 10px;
     text-align: center;
-	font-size: 20px;
+	font-size: 22px;
 }
 .align-center {
     display: block;
     text-align: center;
-	font-size: 20px;
-	padding-bottom: 7px;
+	font-size: 22px;
+	border: white;
+	font-weight: bold;
 }
 .align-left {
 	color: #888;
-	font-size: 20px;
+	font-size: 18px;
     display: block;
 	float: left;
 }
 .align-right {
 	color: #888;
-	font-size: 20px;
+	font-size: 18px;
     display: block;
 	float: right;
 }
 .leaflet-control-slider {
-	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
 	background: none repeat scroll 0% 0% #FFF;
 	border-radius: 5px;
 	padding-top: 12px;
@@ -65,13 +85,16 @@
 }
 .leaflet-control-slider:after{  
 	content: "Opacity";
+	font-family: Segoe UI, Georgia;
 	position: absolute;
-	bottom: 40;
+	bottom: 3px;
 	left: 0;
 	right: 0;
 	height: 7px;
-	font-size: 15;
+	font-size: 14px;
+	font-weight: bold;
 	text-align: center;
+	top: 3px;
 }
 .leaflet-control-slider.leaflet-control-slider-expanded p.leaflet-control-slider-value {
     display: none !important;

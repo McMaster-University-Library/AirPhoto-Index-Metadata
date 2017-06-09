@@ -49,7 +49,7 @@ img{margin-bottom:-5px}a{color:inherit}
 .w3-btn,.w3-btn-block{border:none;display:inline-block;outline:0;padding:6px 16px;vertical-align:middle;overflow:hidden;text-decoration:none!important;color:#fff;background-color:#000;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-btn:hover,.w3-btn-block:hover,.w3-btn-floating:hover,.w3-btn-floating-large:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
 .w3-btn,.w3-btn-floating,.w3-btn-floating-large,.w3-closenav,.w3-opennav{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
-.w3-btn-floating,.w3-btn-floating-large{display:inline-block;text-align:center;color:#fff;background-color:#000;position:relative;overflow:hidden;z-index:1;padding:0;border-radius:50%;cursor:pointer;font-size:24px}
+.w3-btn-floating,.w3-btn-floating-large{display:inline-block;text-align:center;color:#fff;background-color:#000;position:fixed;overflow:hidden;z-index:1;padding:0;border-radius:50%;margin:10px;cursor:pointer;font-size:24px;}
 .w3-btn-floating{width:40px;height:40px;line-height:40px}.w3-btn-floating-large{width:56px;height:56px;line-height:56px}
 .w3-disabled,.w3-btn:disabled,.w3-btn-floating:disabled,.w3-btn-floating-large:disabled{cursor:not-allowed;opacity:0.3}
 .w3-btn.w3-disabled *,.w3-btn-block.w3-disabled,.w3-btn-floating.w3-disabled *,.w3-btn:disabled *,.w3-btn-floating:disabled *{pointer-events:none}
@@ -176,8 +176,8 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-display-topleft{position:absolute;left:0;top:0}.w3-display-topright{position:absolute;right:0;top:0}
 .w3-display-bottomleft{position:absolute;left:0;bottom:0}.w3-display-bottomright{position:absolute;right:0;bottom:0}
 .w3-display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)}
-.w3-display-left{position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%)}
-.w3-display-right{position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%)}
+.w3-display-left{position:absolute;top:8vw;left:0%;}
+.w3-display-right{position:absolute;top:8vw;right:0%;}
 .w3-display-topmiddle{position:absolute;left:50%;top:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
 .w3-display-bottommiddle{position:absolute;left:50%;bottom:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
 .w3-circle{border-radius:50%!important}
@@ -347,40 +347,77 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
 
-/* Style.css added by Lihong Li at Nov3,2016 */
+*{margin:0;padding:0;}
+
+header {
+	text-align:left;
+	position: relative;
+	width:100%;
+	background-color:white;
+	background-size: 50vw 100vw;
+}
+
+header > * {
+	position: absolute;
+}
+
+header > hgroup {
+	position:static;
+	padding-top:0px;
+}
+
+header .logo {
+	left:1vw;
+}
+
+header hgroup h2 {
+	font-family: Segoe UI, Georgia;
+	color: black;
+	font-size: 14px;
+}
+
+header .button {
+	right: 0vw;
+	margin-top: 0.5vw;
+}
 
 body {
-	color:darkgreen; 
+	color:black; 
+	font-family: Segoe UI, Georgia;
 	background-image: url("background.jpg");}	
 
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
+    position: absolute; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top:calc(50px + 2.5vw); /* Location of the box */
+    padding-bottom:10vw;
+	left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(255,255,255,0.4); /* White w/ opacity */
+	border-style:solid #000;
+	border-width:5px;
 }
 
 /* Modal Content */
 .modal-content {
     position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: rgba(255, 255, 255, 1);
+    margin-left: 30vw;
+	margin-right: 20px;
+    width: 40vw;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 1s;
     animation-name: animatetop;
-    animation-duration: 1s
+    animation-duration: 1s;
+	border: 5px solid black;
+	border-radius:15px;
+
 }
 
 /* Add Animation */
@@ -390,16 +427,19 @@ body {
 }
 
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
+    from {top:-1000px; opacity:0}
     to {top:0; opacity:1}
 }
 
 /* The Close Button */
 .close {
-    color: white;
+    color: black;
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 24px;
+	font-family: Segoe UI, Georgia;
+	font-weight: bold;
+	top: calc(-5px + -1vw);
+	position: relative;
 }
 
 .close:hover,
@@ -410,23 +450,22 @@ body {
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    padding: 20px 16px;
+    background-color: none;
+	width: 100%;
+    color: black;
+	text-align: center;
+	border-bottom: 2px solid black;
 }
 
 .modal-body {padding: 2px 16px;}
 
 .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-	
-	left:0;bottom:0;
-	font-size:18px!important;
-	color:#fff!important;background-color:#000!important;
-	
-
+    padding: 30px 20px;
+    background-color: none;
+    color: black;
+	font-size:calc(12px + 0.3vw);
+	height:auto;
 }
 
 
@@ -455,23 +494,30 @@ body {
   }
 
 
-
 .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
+    background-color: white;
+    border: 0px solid #c0c0c0;
+	border-radius: 8px;
+    color: black;
+    padding: 0vw 0.6vw;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+	vertical-align: top;
+    display: inline;
+	font-family: Segoe UI, Georgia;
+    font-size: 1vw;
     cursor: pointer;
+}
+
+.logo img {
+	max-width:4vw;
+	max-height:4vw;
+	height:auto;
+	width:auto;
 }
 
 img.centered {
    display: block;
-   margin: auto auto;
+   margin: auto ;
  }
 
 .controls{
@@ -486,3 +532,21 @@ img.centered {
     text-align:right;
 }
 
+.leaflet-control {
+	font-family: Segoe UI, Georgia;
+	font-size: 14px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
