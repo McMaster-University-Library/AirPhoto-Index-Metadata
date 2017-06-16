@@ -391,7 +391,7 @@ body {
     display: none; /* Hidden by default */
     position: absolute; /* Stay in place */
     z-index: 1000; /* Sit on top */
-    padding-top:calc(50px + 2.5vw); /* Location of the box */
+    padding-top:calc(50px + 2vw); /* Location of the box */
     padding-bottom:10vw;
 	left: 0;
     top: 0;

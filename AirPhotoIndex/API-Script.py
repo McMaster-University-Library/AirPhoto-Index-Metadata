@@ -7,7 +7,7 @@ import os
 import sys
 
 # SETTING INPUT AND OUTPUT FILES.
-inFile = open('Master_Spreadsheet_Current.tsv') #Defining the file located in the directory of this script that stores the information.
+inFile = open('Master.tsv') #Defining the file located in the directory of this script that stores the information.
 outfn = 'index.html' #Defining the desired name of output file.
 if os.path.exists(outfn): #Checking if file exists.
     print 'It appears that '+ outfn +' already exists!' 
