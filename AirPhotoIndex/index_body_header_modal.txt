@@ -91,7 +91,7 @@
 		<div class="w3-display-container mySlides">
 		  <img src="image4.png" style="width:100%">
 		  <div class="modal-footer">
-			View a modern orthoimagery layer by selecting it on the navigation panel.<br>
+			View a modern <b>orthoimagery</b> layer by selecting it on the navigation panel.<br>
 		(Available only to McMaster users)
 		  </div>
 		</div>

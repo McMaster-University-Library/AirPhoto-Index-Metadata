@@ -140,3 +140,4 @@ var poly1999 = L.featureGroup([poly030M05_1999, poly030M04_1999, poly040P01_1999
 var Polygons = L.layerGroup([poly1919, poly1927, poly1934, poly1943, poly1952, poly1956, poly1963, poly1969, poly1972, poly1978, poly1980, poly1985, poly1994, poly1997, poly1999]);
 
 var polyid = {1919: poly1919, 1927: poly1927, 1934: poly1934, 1943: poly1943, 1950: poly1943, 1951: poly1943, 1952: poly1952, 1953: poly1952, 1954: poly1952, 1955: poly1952, 1956: poly1956, 1958: poly1956, 1959: poly1956, 1960: poly1956, 1961: poly1956, 1962: poly1956, 1963: poly1963, 1964: poly1963, 1965: poly1963, 1966: poly1963, 1967: poly1963, 1969: poly1969, 1970: poly1969, 1972: poly1972, 1978: poly1978, 1980: poly1980, 1985: poly1985, 1988: poly1985, 1990: poly1985, 1994: poly1994, 1997: poly1997, 1999: poly1999, 2000: poly1999};
+
