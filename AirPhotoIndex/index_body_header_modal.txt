@@ -57,9 +57,8 @@
 		<div class="w3-display-container mySlides">
 		  <img src="image1.png" style="width:100%">
 		  <div class="modal-footer">
-			The center location of each <b>aerial photo</b> in our collection is identified with a marker.
+			The central location of each <b>aerial photo</b> in the collection is identified with a marker.
 			Explore our collection by navigating the map and using the time slider to select a year of interest.<br>
-			Aerial photos in our collection are identified with markers.
 		  </div>
 		</div>
 
@@ -67,7 +66,7 @@
 		<div class="w3-display-container mySlides">
 		  <img src="image6.png" style="width:100%">
 		  <div class="modal-footer">
-			Click on a <b>marker</b> to find more information on an aerial photo, including an image preview and a link to a digital version (if available).
+			Click on a <b>marker</b> for more information on an aerial photo, including an image preview and a link to a digital version, if available.
 		  </div>
 		</div>
 
@@ -92,7 +91,7 @@
 		  <img src="image4.png" style="width:100%">
 		  <div class="modal-footer">
 			View a modern <b>orthoimagery</b> layer by selecting it on the navigation panel.<br>
-		(Available only to McMaster users)
+		Note: This feature is available only to McMaster users.
 		  </div>
 		</div>
 		
@@ -100,8 +99,8 @@
 		<div class="w3-display-container mySlides">
 		  <img src="image7.png" style="width:100%">
 		  <div class="modal-footer">
-			Explore <b>historic topographic maps</b> by selecting its layer on the navigation panel.
-			Click on the topographic map to view the map's citation.
+			Explore <b>historic topographic maps</b> by selecting its layer on the navigation panel. Slide the time slider across years to view the most recent available topographic maps for the selected year.
+			To view the map's citation, click anywhere on the topographic map.
 		  </div>
 		</div>
 		
