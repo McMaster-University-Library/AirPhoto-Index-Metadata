@@ -91,7 +91,7 @@
 	left: 0;
 	right: 0;
 	height: 7px;
-	font-size: 14px;
+	font-size: calc(11px + 0.3vh);
 	font-weight: bold;
 	text-align: center;
 	top: 3px;

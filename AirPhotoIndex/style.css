@@ -371,7 +371,7 @@ header .logo {
 }
 
 header hgroup h2 {
-	font-family: Segoe UI, Georgia;
+	font-family: Segoe UI, Arial;
 	color: black;
 	font-size: 14px;
 }
@@ -383,8 +383,14 @@ header .button {
 
 body {
 	color:black; 
-	font-family: Segoe UI, Georgia;
-	background-image: url("background.jpg");}	
+	font-family: Segoe UI, Arial;
+	background-image: url("background.jpg");
+}	
+	
+footer {
+	background-color:white;
+	height: 500px;
+}
 
 /* The Modal (background) */
 .modal {
@@ -436,7 +442,7 @@ body {
     color: black;
     float: right;
     font-size: 24px;
-	font-family: Segoe UI, Georgia;
+	font-family: Segoe UI, Arial;
 	font-weight: bold;
 	top: calc(-5px + -1vw);
 	position: relative;
@@ -503,7 +509,7 @@ body {
     text-align: center;
 	vertical-align: top;
     display: inline;
-	font-family: Segoe UI, Georgia;
+	font-family: Segoe UI, Arial;
     font-size: 1vw;
     cursor: pointer;
 }
@@ -533,8 +539,12 @@ img.centered {
 }
 
 .leaflet-control {
-	font-family: Segoe UI, Georgia;
-	font-size: 14px;
+	font-family: Segoe UI, Arial;
+	font-size: calc(11px + 0.3vh);
+	top: 0.5vh;
+	right: 0.5vw;
+	max-height: 45vh;
+	overflow: auto;
 }
 
 .loader {
