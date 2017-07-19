@@ -273,6 +273,11 @@ FIPtilelayers = []
 # Creating empty list for the default zoom level upon selection of a fire insurance plan overlay.
 FIPbounds = []
 
+# Writing fire insurance plan citations attached to an invisible polygon around each area of the FIP layer.
+indexbodyfire = open("index_body_fire.txt").readlines()
+for line in indexbodyfire:
+	outFile.write(line)
+
 # Appends layers to respective tile layer groups.
 for x in xrange(0, len(uniqueyears)):
 
@@ -294,7 +299,7 @@ for x in xrange(0, len(uniqueyears)):
 		outFile.write(bound)
 
 		# Writing fire insurance plans as feature groups by year.
-		FIP = "var FIP"+str(uniqueyears[x])+" =L.featureGroup([FIP_"+str(uniqueyears[x])+", bound_"+str(uniqueyears[x])+"]);\n"
+		FIP = "var FIP"+str(uniqueyears[x])+" =L.featureGroup([FIP_"+str(uniqueyears[x])+", bound_"+str(uniqueyears[x])+", fippoly"+str(uniqueyears[x])+"]);\n"
 		outFile.write(FIP)
 
 		# This set of bounds is the default zoom level when selecting the fire insurance plans.

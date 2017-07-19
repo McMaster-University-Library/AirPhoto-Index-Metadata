@@ -118,7 +118,8 @@
 		<div class="w3-display-container mySlides">
 		  <img src="image2.png" style="width:100%">
 		  <div class="modal-footer">
-			Explore a <b>historic fire insurance plan</b> layer by selecting it on the navigation panel.
+			Explore a <b>historic fire insurance plan</b> layer by selecting it on the navigation panel. 
+			To view the fire insurance plan's citation, click anywhere on the plates of the plan.
 		  </div>
 		</div>
 
@@ -5327,12 +5328,16 @@ var Markers2000=L.markerClusterGroup({disableClusteringAtZoom:13}).addLayers([Ha
  
 var Hamilton2000=L.featureGroup([Markers2000]); 
  
+var fippoly1898 = L.polygon([[43.250325, -79.889716], [43.280332, -79.876806], [43.273701, -79.847659], [43.243205, -79.859383]], {opacity: 0, fillOpacity: 0}).bindPopup("<strong>Fire Insurance Plan Citation</strong> <br> Goad, Charles E. <i> Insurance Plan of the City of Hamilton, Ontario, Canada. </i> Montreal: C.E. Goad, 1898.<br> <a href='http://library.mcmaster.ca/maps/collection/fire' target='_blank'>Explore the Library's entire Fire Insurance Plan collection</a>");
+
+var fippoly1911 = L.polygon([[43.246804, -79.898953], [43.225404, -79.805075], [43.262151, -79.790072], [43.283328, -79.881895]], {opacity: 0, fillOpacity: 0}).bindPopup("<strong>Fire Insurance Plan Citation</strong> <br> Goad, Charles E. <i> Insurance Plan of the City of Hamilton, Ontario, Canada. </i> Montreal: C.E. Goad, 1911.<br> <a href='http://library.mcmaster.ca/maps/collection/fire' target='_blank'>Explore the Library's entire Fire Insurance Plan collection</a>");
+
 var FIP_1898 = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_1898/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});
 var bound_1898 =L.geoJson(B_1898,{style:{'fillOpacity':0,'opacity':0}});
-var FIP1898 =L.featureGroup([FIP_1898, bound_1898]);
+var FIP1898 =L.featureGroup([FIP_1898, bound_1898, fippoly1898]);
 var FIP_1911 = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_1911/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});
 var bound_1911 =L.geoJson(B_1911,{style:{'fillOpacity':0,'opacity':0}});
-var FIP1911 =L.featureGroup([FIP_1911, bound_1911]);
+var FIP1911 =L.featureGroup([FIP_1911, bound_1911, fippoly1911]);
 var Hamilton_1999 = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_1999/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});
 var Hamilton_2002 = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_2002/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});
 var Hamilton_2005 = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_2005/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});

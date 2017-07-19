@@ -81,7 +81,8 @@
 		<div class="w3-display-container mySlides">
 		  <img src="image2.png" style="width:100%">
 		  <div class="modal-footer">
-			Explore a <b>historic fire insurance plan</b> layer by selecting it on the navigation panel.
+			Explore a <b>historic fire insurance plan</b> layer by selecting it on the navigation panel. 
+			To view the fire insurance plan's citation, click anywhere on the plates of the plan.
 		  </div>
 		</div>
 
