@@ -273,7 +273,7 @@ FIPtilelayers = []
 # Creating empty list for the default zoom level upon selection of a fire insurance plan overlay.
 FIPbounds = []
 
-# Writing fire insurance plan citations attached to an invisible polygon around each area of the FIP layer.
+# Writing fire insurance plan citations attached to an invisible polygon around each FIP layer.
 indexbodyfire = open("index_body_fire.txt").readlines()
 for line in indexbodyfire:
 	outFile.write(line)
