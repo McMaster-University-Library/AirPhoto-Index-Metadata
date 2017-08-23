@@ -1,6 +1,6 @@
 # McMaster University's Air Photo Index
 
-**This repository is a resource to create an Air Photo Index presented as an online interactive map. Additional features to this map include historic fire insurance plans, orthoimagery, topographical maps, and a tutorial modal. Access the current Air Photo Index [here.](file:///C:/Home/Air-Photo-Index/AirPhoto-Index-Metadata/AirPhotoIndex/index.html)**
+**This repository is a resource to create an Air Photo Index presented as an online interactive map. Additional features to this map include historic fire insurance plans, orthoimagery, topographical maps, and a tutorial modal. Access the current Air Photo Index [here.](http://library.mcmaster.ca/maps/aerialphotos/index.html)**
 
 ## Folder: AirPhotoIndex
 
