@@ -14,7 +14,7 @@ Using Python 2.7.12, this script converts information from the master spreadshee
 
 The following steps are a quick guide in using Create-API.py to create or update the existing Air Photo Index web-page.
 
-	1. Download the latest version of the Google [Master Spreadsheet](https://docs.google.com/spreadsheets/d/180qQStP5EkeY_3a4eM5lXcDYv3QY4zFq4l5bx3BZ8m0/edit#gid=0) as a TSV file.
+	1. Download the latest version of the Google Master Spreadsheet as a TSV file.
 	2. Rename it Master.tsv, and place it in the same folder or directory as the Create-API.py.
 	3. Run Create-API.py by right clicking the script, opening it in IDLE, and hitting F5 once the program is open.
 	4. The Air Photo Index will be created in an HTML document, named index.html, within the same directory as the Create-API.py script that was run. 
