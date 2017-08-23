@@ -24,8 +24,6 @@ This folder contains a script to generate a tab delimited TXT file containing se
 
 This folder contains a script to create thumbnails of original aerial photos using the ImageMagick program.
 
-### _Find the complete user guide in the Google Doc [here.](https://docs.google.com/document/d/15C5t9oEDk808uXAyx8PzxzmvWaYHMnQU5fdk2MuaDOA/edit?usp=sharing)_
-
 ### _McMaster University Library Student Contributors_
 
 | Student | GitHub Profile |
@@ -35,3 +33,5 @@ This folder contains a script to create thumbnails of original aerial photos usi
 | Jordan Aharoni | [jordanaharoni](https://github.com/jordanaharoni) |
 | Noel Cochon | [cochonnk](https://github.com/cochonnk) |
 | Kayla Wong |    |
+
+### _Find the complete user guide and project documentation in the Google Doc [here.](https://docs.google.com/document/d/15C5t9oEDk808uXAyx8PzxzmvWaYHMnQU5fdk2MuaDOA/edit?usp=sharing)_
