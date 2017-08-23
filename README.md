@@ -19,6 +19,10 @@ The following steps are a quick guide in using Create-API.py to create or update
 	3. Run Create-API.py by right clicking the script, opening it in IDLE, and hitting F5 once the program is open.
 	4. The Air Photo Index will be created in an HTML document, named index.html, within the same directory as the Create-API.py script that was run. 
 
+### Resource: index.html
+
+This HTML file presents the Air Photo Index as an online interactive map, with additional features including historic fire insurance plans, orthoimagery, topographical maps, and a tutorial modal. This file is created by running the Python script Create-API.py, along with the Leaflet library for mobile-friendly interactive maps. All JavaScript and CSS files used within the HTML document are contained within the same folder. The latest version of index.html can be found online [here,](http://library.mcmaster.ca/maps/aerialphotos/index.html) through the McMaster University Library website.
+	
 ## Folder: Compression
 
 This folder contains a script to compress TIF and XML files in a given directory into ZIP files of smaller sizes. These ZIP files are those that are then batch ingested into the Digital Archive.
