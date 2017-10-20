@@ -386,6 +386,13 @@ for x in xrange(0,len(fipyears)):
 opacTopo='Topography1919.setOpacity(value);Topography1927.setOpacity(value);Topography1934.setOpacity(value);Topography1943.setOpacity(value);Topography1950.setOpacity(value);Topography1951.setOpacity(value);Topography1952.setOpacity(value);Topography1953.setOpacity(value);Topography1954.setOpacity(value);Topography1955.setOpacity(value);Topography1956.setOpacity(value);Topography1958.setOpacity(value);Topography1959.setOpacity(value);Topography1960.setOpacity(value);Topography1961.setOpacity(value);Topography1962.setOpacity(value);Topography1963.setOpacity(value);Topography1964.setOpacity(value);Topography1965.setOpacity(value);Topography1966.setOpacity(value);Topography1967.setOpacity(value);Topography1969.setOpacity(value);Topography1970.setOpacity(value);Topography1972.setOpacity(value);Topography1978.setOpacity(value);Topography1980.setOpacity(value);Topography1985.setOpacity(value);Topography1988.setOpacity(value);Topography1990.setOpacity(value);Topography1994.setOpacity(value);Topography1997.setOpacity(value);Topography1999.setOpacity(value);Topography2000.setOpacity(value);},\n{position: "topright",max: 1,value: 1,step:0.05,size: "200px",collapsed: false,id: "slider"}).addTo(map);\n\n'
 outFile.write(opacTopo)
 
+# This script first creates variables for the corresponding set of aerial photo polygons
+# for each year available. Then, controllable variables are created and used in
+# function(layer) near the end of the html code.
+indexbodybounds = open("index_body_bounds.txt").readlines()
+for line in indexbodybounds:
+	outFile.write(line)
+
 # Writing function to add layers to the map for the corresponding time slider year.
 # The first three lines of this function allow only the respective aerial photos for each year of
 # the timeslider to appear on the map. The following lines of the function serve to allow only the
@@ -396,6 +403,9 @@ function layer(value)
   {if (map.hasLayer(id[value])==false) {map.eachLayer(function(layer){
 		if (Years.hasLayer(layer)==true) {map.removeLayer(layer)}});
 		id[value].addTo(map).bringToFront();};
+	if (map.hasLayer(boundsid[value])==false) {map.eachLayer(function(layer){
+		if (Bounds.hasLayer(layer)==true) {map.removeLayer(layer)}});
+		boundsid[value].addTo(map).bringToFront();};
 	if (map.hasLayer(TopographyToggle)==true) {
 		if (map.hasLayer(topoid[value])==false) {map.eachLayer(function(layer){
 			if (Topography.hasLayer(layer)==true) {map.removeLayer(layer)}});

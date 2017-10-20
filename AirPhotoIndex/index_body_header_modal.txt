@@ -57,6 +57,7 @@
 		  <img src="image1.png" style="width:100%">
 		  <div class="modal-footer">
 			The central location of each <b>aerial photo</b> in the collection is identified with a marker.
+			Where available, boundaries of aerial photos are indicated for each marker.
 			Explore our collection by navigating the map and using the time slider to select a year of interest.<br>
 		  </div>
 		</div>
