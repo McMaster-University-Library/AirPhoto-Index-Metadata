@@ -111,6 +111,10 @@ for colour in markercolours:
 # Redefining marker colours to repeat after having each been used once.
 markercolours = ['blue', 'orange', 'green', 'purple', 'yellow', 'red', 'pink', 'gray', 'maroon', 'brown', 'lightblue', 'lightgreen', 'blue', 'orange', 'green', 'purple', 'yellow', 'red', 'pink', 'gray', 'maroon', 'brown', 'lightblue', 'lightgreen', 'blue', 'orange', 'green', 'purple', 'yellow', 'red', 'pink', 'gray', 'maroon', 'brown', 'lightblue', 'lightgreen', 'blue', 'orange', 'green', 'purple', 'yellow', 'red',  'pink', 'gray', 'maroon', 'brown', 'lightblue', 'lightgreen']
 
+# Creating a MouseOut function for removing aerial photo envelope polygons.
+mouseout = 'function onMouseOut(e) {map.removeLayer(polygon)};\n'
+outFile.write(mouseout)
+
 # Creating empty lists.
 flightlineset = [] # Creating a set for all flightlines of the same timeline year.
 yearlayers = [] # Creating list of layer groups by year.
@@ -162,8 +166,8 @@ for x in xrange(0, len(timelineyears)):
 		year = year[:4]
 
 		# For each aerial photo, the set name, photo date, flight line, photo number, scale,
-		# citation, thumbnail, thumbnail link, and digital archvie link is obtained from their
-		# respective columns in the TSV file.	
+		# citation, thumbnail, thumbnail link, digital archvie link, and envelope code is obtained
+		# from their respective columns in the TSV file.        
 		identifier = item[3]
 		flightline = item[5]
 		photo = item[6]
@@ -173,14 +177,15 @@ for x in xrange(0, len(timelineyears)):
 		thumbnail = item[10]
 		archivelink = item[11]
 		fulldate = item[17]
-		citationa = item[37]
-		citationb = item[38]
-		citationc = item[39]
+		citationa = item[63]
+		citationb = item[64]
+		citationc = item[65]
+		envelope = item[42]
 
 		# If there is no information for both the flightline or photo, this sets the title for
 		# both information fields.
 		if flightline == '' and photo == '':
-        
+	
 			iTitle = item[0]
 			iphoto = item[0]
 			
@@ -188,7 +193,7 @@ for x in xrange(0, len(timelineyears)):
 			iTitle = ''
 			iphoto = photo
 
-                # Formatting information.
+		# Formatting information.
 		cflightline = flightline.translate(None,"-")
 		cflightline = cflightline.translate(None,"?")
 		cflightline = cflightline.translate(None,"/")
@@ -211,31 +216,42 @@ for x in xrange(0, len(timelineyears)):
 		else:
 			archivelinkscript = ""
 
-		# If the thumbnail image exists, this writes the necessary HTML code.	
+		# If the thumbnail image exists, this writes the necessary HTML code.   
 		if thumbnail == "":
 			thumbnailscript = ""
 		else:
 			thumbnailscript = '<a href="'+str(archivelink)+'" target="_blank"><img src="'+str(thumbnail)+'" height="200" width="200"></a> <br>'
 
-                # !IMPORTANT! # Creates script for a marker function for each aerial photo marker.
-                # !IMPORTANT! # The information for each aerial photo pop-up is created here.
-                # !IMPORTANT! # To make all aerial photos of the same flightline the same colour,
-                # !IMPORTANT! # the list markerarray is created to store aerial photos for the same
-                # !IMPORTANT! # flightline and timeline year.
+		# !IMPORTANT! # Creates script for a marker function for each aerial photo marker.
+		# !IMPORTANT! # The information for each aerial photo pop-up is created here.
+		# !IMPORTANT! # To make all aerial photos of the same flightline the same colour,
+		# !IMPORTANT! # the list markerarray is created to store aerial photos for the same
+		# !IMPORTANT! # flightline and timeline year.
 		for y in xrange (0, len(flightlineset)):
-                        
+			
 			if flightline == flightlineset[y] and str(timelineyears[x]) == year:
 
-                                # Creating each marker.
-				markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\'); \n'
-				outFile.write(markers)
+				if envelope == "":
 
-				# Appending the name of individual markers to a set of all markers for the same flightline.
-				markerarray.append(str(str(identifier)+str(timelineyears[x]))+str(cflightline)+str(cphoto)+str(iTitle))
+					# Creating each marker.
+					markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\'); \n'
+					outFile.write(markers)
+
+					# Appending the name of individual markers to a set of all markers for the same flightline.
+					markerarray.append(str(str(identifier)+str(timelineyears[x]))+str(cflightline)+str(cphoto)+str(iTitle))
+
+				else:
+
+					# Creating each marker.
+					markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\').on({click: function Click'+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'(e) '+str(envelope)+'}); \n'
+					outFile.write(markers)
+
+					# Appending the name of individual markers to a set of all markers for the same flightline.
+					markerarray.append(str(str(identifier)+str(timelineyears[x]))+str(cflightline)+str(cphoto)+str(iTitle))
 				
 			else: pass
 
-	# Appending all marker sets to a list of marker sets of the same timeline year.		
+	# Appending all marker sets to a list of marker sets of the same timeline year.         
 	if timelineyears[x] in timelineyears:
 		layerarray.append('Markers'+str(timelineyears[x]))
 
@@ -281,16 +297,16 @@ for line in indexbodyfire:
 # Appends layers to respective tile layer groups.
 for x in xrange(0, len(uniqueyears)):
 
-        # Appends layers for each year of orthoimagery to the orthoimagery tile layer group.
+	# Appends layers for each year of orthoimagery to the orthoimagery tile layer group.
 	if uniqueyears[x] in orthoyears:
-                
+		
 		layer = "var Hamilton_"+str(uniqueyears[x])+" = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_"+str(uniqueyears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
 		orthotilelayers.append('\"Hamilton '+str(uniqueyears[x])+'\": Hamilton_'+str(uniqueyears[x]))
 		outFile.write(layer)
 
 	# Appends layers for each year of fire insurance plans to the FIP tile layer group.
 	elif uniqueyears[x] in fipyears:
-                
+		
 		layer = "var FIP_"+str(uniqueyears[x])+" = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_"+str(uniqueyears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});\n"
 		outFile.write(layer)
 		
@@ -308,7 +324,7 @@ for x in xrange(0, len(uniqueyears)):
 
 	else: pass
 
-# Sorting each set of unique items in the following lists.	
+# Sorting each set of unique items in the following lists.      
 yearlayers = sorted(set(yearlayers))
 FIPbounds = sorted(set(FIPbounds))
 orthotilelayers = sorted(set(orthotilelayers))
@@ -330,6 +346,10 @@ FIPtilelayers=str(FIPtilelayers).translate(None,"'").translate(None,"]").transla
 indexbodytopography = open("index_body_topography.txt").readlines()
 for line in indexbodytopography:
 	outFile.write(line)
+
+# Creating BoundsToggle, a blank layer controlled by the user-clickable bubble for the aerial photo envelopes.
+BoundsToggle = "var BoundsToggle = L.tileLayer('');\n"
+outFile.write(BoundsToggle)
 
 # WRITING SCRIPT FOR BASEMAPS, DEFAULT BASE MAP, AND MAP OVERLAYS.
 
@@ -358,8 +378,8 @@ outFile.write('var id='+str(id)+'; \n')
 
 # Wtiting basemaps, overlays, and adding them to layer control.
 outFile.write('var baseLayers = {"OpenStreetMap": OSMbase,"Grayscale": grayscale,"Streets": streets}; \n') 
-outFile.write('var overlays = {"<b>Orthoimagery</b>":{'+str(orthotilelayers)+'},\n"<b>Fire Insurance Plans</b>":{'+str(FIPtilelayers)+'},"<b>Topographic Maps</b>":{"Hamilton": TopographyToggle'+'}};\n\n')
-LCGBasemaps='var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Orthoimagery","Fire Insurance Plans","Topographic Maps"],collapsed:false}).addTo(map); \n\n'
+outFile.write('var overlays = {"<b>Orthoimagery</b>":{'+str(orthotilelayers)+'},\n"<b>Fire Insurance Plans</b>":{'+str(FIPtilelayers)+'},"<b>Topographic Maps</b>":{"Hamilton": TopographyToggle'+'}, "<b>Aerial Photo Envelopes</b>":{"Hamilton": BoundsToggle'+'}};\n\n')
+LCGBasemaps='var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Orthoimagery","Fire Insurance Plans","Topographic Maps","Aerial Photo Envelopes"],collapsed:false}).addTo(map); \n\n'
 outFile.write(LCGBasemaps)
 
 # WRITING SCRIPT FOR MAP FEATURES INCLUDING ITS SCALE AND LAYER OPACITY.
@@ -402,10 +422,15 @@ yearswitch = """
 function layer(value)
   {if (map.hasLayer(id[value])==false) {map.eachLayer(function(layer){
 		if (Years.hasLayer(layer)==true) {map.removeLayer(layer)}});
-		id[value].addTo(map).bringToFront();};
-	if (map.hasLayer(boundsid[value])==false) {map.eachLayer(function(layer){
-		if (Bounds.hasLayer(layer)==true) {map.removeLayer(layer)}});
-		boundsid[value].addTo(map).bringToFront();};
+		id[value].addTo(map).bringToFront();}
+	if (map.hasLayer(BoundsToggle)==true) {
+		if (map.hasLayer(boundsid[value])==false) {map.eachLayer(function(layer){
+			if (Bounds.hasLayer(layer)==true) {map.removeLayer(layer)}});
+			boundsid[value].addTo(map).bringToFront();};}
+	if (map.hasLayer(BoundsToggle)==false) {
+		if (map.hasLayer(boundsid[value])==true) {map.eachLayer(function(layer){
+			if (Bounds.hasLayer(layer)==true) {map.removeLayer(layer)}})
+			}}
 	if (map.hasLayer(TopographyToggle)==true) {
 		if (map.hasLayer(topoid[value])==false) {map.eachLayer(function(layer){
 			if (Topography.hasLayer(layer)==true) {map.removeLayer(layer)}});
