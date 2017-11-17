@@ -115,6 +115,10 @@ markercolours = ['blue', 'orange', 'green', 'purple', 'yellow', 'red', 'pink', '
 mouseout = 'function onMouseOut(e) {map.removeLayer(polygon)};\n'
 outFile.write(mouseout)
 
+# Creating an empty variable for aerial photo envelope polygons.
+emptypolygon = 'var polygon = "";\n'
+outFile.write(emptypolygon)
+
 # Creating empty lists.
 flightlineset = [] # Creating a set for all flightlines of the same timeline year.
 yearlayers = [] # Creating list of layer groups by year.
@@ -233,7 +237,7 @@ for x in xrange(0, len(timelineyears)):
 
 				if envelope == "":
 
-					# Creating each marker.
+					# Creating each marker if envelopes are not available for the aerial photo.
 					markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\'); \n'
 					outFile.write(markers)
 
@@ -242,7 +246,7 @@ for x in xrange(0, len(timelineyears)):
 
 				else:
 
-					# Creating each marker.
+					# Creating each marker if envelopes are available for the aerial photo.
 					markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\').on({click: function Click'+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'(e) '+str(envelope)+'}); \n'
 					outFile.write(markers)
 

@@ -23,28 +23,28 @@ function pop_boundaries(feature, layer) {
             layer.on({mouseout: function(e) {layer.setStyle(boundariesstyle(feature));}, mouseover: highlightFeature,});
 			}
 
-var boundaries1927 = new L.geoJson(boundaries1927, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1934 = new L.geoJson(boundaries1934, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1943 = new L.geoJson(boundaries1943, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1950 = new L.geoJson(boundaries1950, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1951 = new L.geoJson(boundaries1951, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1952 = new L.geoJson(boundaries1952, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1953 = new L.geoJson(boundaries1953, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1954 = new L.geoJson(boundaries1954, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1956 = new L.geoJson(boundaries1956, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1958 = new L.geoJson(boundaries1958, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1959 = new L.geoJson(boundaries1959, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1960 = new L.geoJson(boundaries1960, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1961 = new L.geoJson(boundaries1961, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1962 = new L.geoJson(boundaries1962, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1963 = new L.geoJson(boundaries1963, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1964 = new L.geoJson(boundaries1964, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1965 = new L.geoJson(boundaries1965, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1966 = new L.geoJson(boundaries1966, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1967 = new L.geoJson(boundaries1967, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1969 = new L.geoJson(boundaries1969, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1970 = new L.geoJson(boundaries1970, {onEachFeature: pop_boundaries, style: boundariesstyle});
-var boundaries1972 = new L.geoJson(boundaries1972, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1927 = L.geoJson(boundaries1927, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1934 = L.geoJson(boundaries1934, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1943 = L.geoJson(boundaries1943, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1950 = L.geoJson(boundaries1950, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1951 = L.geoJson(boundaries1951, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1952 = L.geoJson(boundaries1952, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1953 = L.geoJson(boundaries1953, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1954 = L.geoJson(boundaries1954, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1956 = L.geoJson(boundaries1956, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1958 = L.geoJson(boundaries1958, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1959 = L.geoJson(boundaries1959, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1960 = L.geoJson(boundaries1960, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1961 = L.geoJson(boundaries1961, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1962 = L.geoJson(boundaries1962, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1963 = L.geoJson(boundaries1963, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1964 = L.geoJson(boundaries1964, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1965 = L.geoJson(boundaries1965, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1966 = L.geoJson(boundaries1966, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1967 = L.geoJson(boundaries1967, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1969 = L.geoJson(boundaries1969, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1970 = L.geoJson(boundaries1970, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1972 = L.geoJson(boundaries1972, {onEachFeature: pop_boundaries, style: boundariesstyle});
 
 var bounds1927 = L.featureGroup([boundaries1927]);
 var bounds1934 = L.featureGroup([boundaries1934]);
@@ -68,7 +68,8 @@ var bounds1967 = L.featureGroup([boundaries1967]);
 var bounds1969 = L.featureGroup([boundaries1969]);
 var bounds1970 = L.featureGroup([boundaries1970]);
 var bounds1972 = L.featureGroup([boundaries1972]);
+var nobounds = L.tileLayer('')
 
-var Bounds = L.layerGroup([bounds1927, bounds1934, bounds1943, bounds1950, bounds1951, bounds1952, bounds1953, bounds1954, bounds1956, bounds1958, bounds1959, bounds1960, bounds1961, bounds1962, bounds1963, bounds1964, bounds1965, bounds1966, bounds1967, bounds1969, bounds1970, bounds1972]);
+var Bounds = L.layerGroup([bounds1927, bounds1934, bounds1943, bounds1950, bounds1951, bounds1952, bounds1953, bounds1954, bounds1956, bounds1958, bounds1959, bounds1960, bounds1961, bounds1962, bounds1963, bounds1964, bounds1965, bounds1966, bounds1967, bounds1969, bounds1970, bounds1972, nobounds]);
 
-var boundsid = {1927: bounds1927, 1934: bounds1934, 1943: bounds1943, 1950: bounds1950, 1951: bounds1951, 1952: bounds1952, 1953: bounds1953, 1954: bounds1954, 1956: bounds1956, 1958: bounds1958, 1959: bounds1959, 1960: bounds1960, 1961: bounds1961, 1962: bounds1962, 1963: bounds1963, 1964: bounds1964, 1965: bounds1965, 1966: bounds1966, 1967: bounds1967, 1969: bounds1969, 1970: bounds1970, 1972: bounds1972};
+var boundsid = {1919: nobounds, 1927: bounds1927, 1934: bounds1934, 1943: bounds1943, 1950: bounds1950, 1951: bounds1951, 1952: bounds1952, 1953: bounds1953, 1954: bounds1954, 1955: nobounds, 1956: bounds1956, 1958: bounds1958, 1959: bounds1959, 1960: bounds1960, 1961: bounds1961, 1962: bounds1962, 1963: bounds1963, 1964: bounds1964, 1965: bounds1965, 1966: bounds1966, 1967: bounds1967, 1969: bounds1969, 1970: bounds1970, 1972: bounds1972, 1978: nobounds, 1980: nobounds, 1985: nobounds, 1988: nobounds, 1990: nobounds, 1994: nobounds, 1997: nobounds, 1999: nobounds, 2000: nobounds};
