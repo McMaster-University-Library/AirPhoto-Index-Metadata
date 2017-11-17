@@ -1,4 +1,4 @@
-	
+
 <body style="font-family:Segoe UI, Arial;">
 	
 	<header>
@@ -66,7 +66,7 @@
 		<div class="w3-display-container mySlides">
 		  <img src="image6.png" style="width:100%">
 		  <div class="modal-footer">
-			Click on a <b>marker</b> for more information on an aerial photo, including an image preview and a link to a digital version, if available.
+			Click on a <b>marker</b> for more information on an aerial photo, including an image preview, a link to a digital version, and the photo's geographic envelope highlighted in yellow, if available.
 		  </div>
 		</div>
 
@@ -106,6 +106,14 @@
 		</div>
 		
 		<!-- Slide 8 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image8.png" style="width:100%">
+		  <div class="modal-footer">
+			View <b>aerial photo envelopes</b> by selecting it on the navigation panel. Hover over locations to highlight an area and view the extent of geography the aerial photo collection covers. Slide the time slider across years to view available envelopes for the selected year.
+		  </div>
+		</div>
+		
+		<!-- Slide 9 -->
 		<div class="w3-display-container mySlides">
 		  <img src="image5.png" style="width:100%">
 		  <div class="modal-footer">
