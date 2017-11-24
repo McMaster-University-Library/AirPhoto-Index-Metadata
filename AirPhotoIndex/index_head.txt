@@ -17,15 +17,12 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-        <link rel="stylesheet" type="text/css" href="css/own_style.css">
         <link href="http://loopj.github.io/jquery-simple-slider/css/simple-slider.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="css/API.css">
-        <link rel="stylesheet" href="https://ismyrnow.github.io/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.css">
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
         <script src="data/FIP_bounds.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="https://ismyrnow.github.io/Leaflet.groupedlayercontrol/src/leaflet.groupedlayercontrol.js"></script>
         <script src="js/simple-slider.js"></script>
         <script src="js/control-layers.js"></script>
         <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>

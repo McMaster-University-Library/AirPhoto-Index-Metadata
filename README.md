@@ -1,6 +1,6 @@
 # McMaster University's Air Photo Index
 
-**This repository is a resource to create an Air Photo Index presented as an online interactive map. Additional features to this map include historic fire insurance plans, orthoimagery, topographical maps, and a tutorial modal. Access the current Air Photo Index [here.](http://library.mcmaster.ca/maps/aerialphotos/index.html)**
+**This repository is a resource to create an Air Photo Index presented as an online interactive map. Additional features to this map include historic fire insurance plans, orthoimagery, topographical maps, aerial photo envelopes, and a tutorial modal. Access the current Air Photo Index [here.](http://library.mcmaster.ca/maps/aerialphotos/index.html)**
 
 ## Folder: AirPhotoIndex
 
@@ -10,7 +10,7 @@ This TSV file is the latest downloaded version of the Google [Master Spreadsheet
 
 ### Tool: Create-API.py
 
-Using Python 2.7.12, this script converts information from the master spreadsheet of aerial photo index metadata in TSV format into HTML format. In addition to base layer maps and markers for each aerial photo in the database, the HTML file created with this script includes layers of historic fire insurance plans, orthoimagery, and topographical maps. A tutorial modal that pops up upon opening the web-page is also included in the HTML file. Majority of the website's functionality is used with Leaflet (Version 0.7.3), an open-source JavaScript library for mobile-friendly interactive maps. All JavaScript and CSS files used for this script are contained within the same folder. Full descriptions for the script's functionality is found within it. Create-API.py was last updated in October 2017 and the Air Photo Index web-page has since been named the Historical Hamilton Portal.
+Using Python 2.7.12, this script converts information from the master spreadsheet of aerial photo index metadata in TSV format into HTML format. In addition to base layer maps and markers for each aerial photo in the database, the HTML file created with this script includes layers of historic fire insurance plans, orthoimagery, topographical maps, and aerial photo envelopes. A tutorial modal that pops up upon opening the web-page is also included in the HTML file. Majority of the website's functionality is used with Leaflet (Version 0.7.3), an open-source JavaScript library for mobile-friendly interactive maps. All JavaScript and CSS files used for this script are contained within the same folder. Full descriptions for the script's functionality is found within it. Create-API.py was last updated in October 2017 and the Air Photo Index web-page has since been named the Historical Hamilton Portal.
 
 The following steps are a quick guide in using Create-API.py to create or update the existing Air Photo Index web-page.
 
@@ -21,7 +21,7 @@ The following steps are a quick guide in using Create-API.py to create or update
 
 ### Resource: index.html
 
-This HTML file presents the Air Photo Index as an online interactive map, with additional features including historic fire insurance plans, orthoimagery, topographical maps, and a tutorial modal. This file is created by running the Python script Create-API.py, along with the Leaflet library for mobile-friendly interactive maps. All JavaScript and CSS files used within the HTML document are contained within the same folder. The latest version of index.html can be found online [here,](http://library.mcmaster.ca/maps/aerialphotos/index.html) through the McMaster University Library website.
+This HTML file presents the Air Photo Index as an online interactive map, with additional features including historic fire insurance plans, orthoimagery, topographical maps, aerial photo envelopes, and a tutorial modal. This file is created by running the Python script Create-API.py, along with the Leaflet library for mobile-friendly interactive maps. All JavaScript and CSS files used within the HTML document are contained within the same folder. The latest version of index.html can be found online [here,](http://library.mcmaster.ca/maps/aerialphotos/index.html) through the McMaster University Library website.
 	
 ## Folder: Compression
 
