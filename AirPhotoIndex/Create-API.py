@@ -52,16 +52,16 @@ for line in content:
 	
 	item = line.split('\t')
 	year = item[17]
-	
-	if year[0] == '[':
-		year = year[1:-1]
 
 	#In the case where item[17] is a range of years, the earliest year is considered.    
 	year = year[:4]
-	years.append(year)
+	if year == '':
+		pass
+	else:
+		years.append(year)
 
 # Obtaining the set of unique years used for the timeslider, and sorting them in ascending order.
-timelineyears = sorted(set(years)) 
+timelineyears = sorted(set(years))
 timelineyears = map(int,timelineyears)
 
 # WRITING THE BEGINNING OF THE HTML CODE TO index.html.
@@ -143,8 +143,6 @@ for x in xrange(0, len(timelineyears)):
 		
 		# Obtaining the timeline year for each aerial photo.
 		year = item[17]
-		if year[0] == '[':
-			year = year[1:-1]
 		year = year[:4]
 
 		if str(timelineyears[x]) == year:
@@ -165,8 +163,6 @@ for x in xrange(0, len(timelineyears)):
 				
 		# Obtaining the timeline year for each aerial photo.
 		year = item[17]
-		if year[0] == '[':
-			year = year[1:-1]
 		year = year[:4]
 
 		# For each aerial photo, the set name, photo date, flight line, photo number, scale,
@@ -181,10 +177,10 @@ for x in xrange(0, len(timelineyears)):
 		thumbnail = item[10]
 		archivelink = item[11]
 		fulldate = item[17]
-		citationa = item[63]
-		citationb = item[64]
-		citationc = item[65]
-		envelope = item[42]
+		citationa = item[37]
+		citationb = item[38]
+		citationc = item[39]
+		envelope = item[41]
 
 		# If there is no information for both the flightline or photo, this sets the title for
 		# both information fields.

@@ -45,6 +45,15 @@ var boundaries1967 = L.geoJson(boundaries1967, {onEachFeature: pop_boundaries, s
 var boundaries1969 = L.geoJson(boundaries1969, {onEachFeature: pop_boundaries, style: boundariesstyle});
 var boundaries1970 = L.geoJson(boundaries1970, {onEachFeature: pop_boundaries, style: boundariesstyle});
 var boundaries1972 = L.geoJson(boundaries1972, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1978 = L.geoJson(boundaries1978, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1980 = L.geoJson(boundaries1980, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1985 = L.geoJson(boundaries1985, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1988 = L.geoJson(boundaries1988, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1990 = L.geoJson(boundaries1990, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1994 = L.geoJson(boundaries1994, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1997 = L.geoJson(boundaries1997, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries1999 = L.geoJson(boundaries1999, {onEachFeature: pop_boundaries, style: boundariesstyle});
+var boundaries2000 = L.geoJson(boundaries2000, {onEachFeature: pop_boundaries, style: boundariesstyle});
 
 var bounds1927 = L.featureGroup([boundaries1927]);
 var bounds1934 = L.featureGroup([boundaries1934]);
@@ -68,8 +77,17 @@ var bounds1967 = L.featureGroup([boundaries1967]);
 var bounds1969 = L.featureGroup([boundaries1969]);
 var bounds1970 = L.featureGroup([boundaries1970]);
 var bounds1972 = L.featureGroup([boundaries1972]);
+var bounds1978 = L.featureGroup([boundaries1978]);
+var bounds1980 = L.featureGroup([boundaries1980]);
+var bounds1985 = L.featureGroup([boundaries1985]);
+var bounds1988 = L.featureGroup([boundaries1988]);
+var bounds1990 = L.featureGroup([boundaries1990]);
+var bounds1994 = L.featureGroup([boundaries1994]);
+var bounds1997 = L.featureGroup([boundaries1997]);
+var bounds1999 = L.featureGroup([boundaries1999]);
+var bounds2000 = L.featureGroup([boundaries2000]);
 var nobounds = L.tileLayer('')
 
-var Bounds = L.layerGroup([bounds1927, bounds1934, bounds1943, bounds1950, bounds1951, bounds1952, bounds1953, bounds1954, bounds1956, bounds1958, bounds1959, bounds1960, bounds1961, bounds1962, bounds1963, bounds1964, bounds1965, bounds1966, bounds1967, bounds1969, bounds1970, bounds1972, nobounds]);
+var Bounds = L.layerGroup([bounds1927, bounds1934, bounds1943, bounds1950, bounds1951, bounds1952, bounds1953, bounds1954, bounds1956, bounds1958, bounds1959, bounds1960, bounds1961, bounds1962, bounds1963, bounds1964, bounds1965, bounds1966, bounds1967, bounds1969, bounds1970, bounds1972, bounds1978, bounds1980, bounds1985, bounds1988, bounds1990, bounds1994, bounds1997, bounds1999, bounds2000]);
 
-var boundsid = {1919: nobounds, 1927: bounds1927, 1934: bounds1934, 1943: bounds1943, 1950: bounds1950, 1951: bounds1951, 1952: bounds1952, 1953: bounds1953, 1954: bounds1954, 1955: nobounds, 1956: bounds1956, 1958: bounds1958, 1959: bounds1959, 1960: bounds1960, 1961: bounds1961, 1962: bounds1962, 1963: bounds1963, 1964: bounds1964, 1965: bounds1965, 1966: bounds1966, 1967: bounds1967, 1969: bounds1969, 1970: bounds1970, 1972: bounds1972, 1978: nobounds, 1980: nobounds, 1985: nobounds, 1988: nobounds, 1990: nobounds, 1994: nobounds, 1997: nobounds, 1999: nobounds, 2000: nobounds};
+var boundsid = {1919: nobounds, 1927: bounds1927, 1934: bounds1934, 1943: bounds1943, 1950: bounds1950, 1951: bounds1951, 1952: bounds1952, 1953: bounds1953, 1954: bounds1954, 1955: nobounds, 1956: bounds1956, 1958: bounds1958, 1959: bounds1959, 1960: bounds1960, 1961: bounds1961, 1962: bounds1962, 1963: bounds1963, 1964: bounds1964, 1965: bounds1965, 1966: bounds1966, 1967: bounds1967, 1969: bounds1969, 1970: bounds1970, 1972: bounds1972, 1978: bounds1978, 1980: bounds1980, 1985: bounds1985, 1988: bounds1988, 1990: bounds1990, 1994: bounds1994, 1997: bounds1997, 1999: bounds1999, 2000: bounds2000};
