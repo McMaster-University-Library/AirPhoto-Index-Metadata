@@ -64,6 +64,25 @@ for line in content:
 timelineyears = sorted(set(years))
 timelineyears = map(int,timelineyears)
 
+
+# CREATING NECCESSARY JAVASCRIPT DATA FILES.
+
+for year in timelineyears:
+
+        # Creating empty list for the javascript feature code for each timeline year.
+        javascriptfeature = []
+        
+        for line in content:
+                item = line.split('\t')
+
+                if str(item[17][:4]) == str(year) and item[40] != '':
+                        javascriptfeature.append(item[40])
+      
+        with open("C:\Home\Air-Photo-Index\AirPhoto-Index-Metadata\AirPhotoIndex\data\Boundaries" + str(year) + ".js", 'w') as file:
+                file.write("var boundaries" + str(year) + """ = {"type": "FeatureCollection", "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } }, "features":
+                """
+                + str(javascriptfeature).replace("'", "") + str("};"))
+        
 # WRITING THE BEGINNING OF THE HTML CODE TO index.html.
 
 # Writing the website's head elements, which are stored in a text file.
@@ -465,3 +484,4 @@ print ("Success. The Historical Hamilton Portal HTML file has been written to " 
 
 inFile.close()
 outFile.close()
+
