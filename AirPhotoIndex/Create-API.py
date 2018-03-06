@@ -64,7 +64,6 @@ for line in content:
 timelineyears = sorted(set(years))
 timelineyears = map(int,timelineyears)
 
-
 # CREATING NECCESSARY JAVASCRIPT DATA FILES.
 
 for year in timelineyears:
@@ -350,8 +349,8 @@ orthotilelayers = sorted(set(orthotilelayers))
 FIPtilelayers = sorted(set(FIPtilelayers))
 
 # Removing unneccessary characters before adding the list to the HTML script.
-orthotilelayers=str(orthotilelayers).translate(None,"'").translate(None,"]").translate(None,"[")
-FIPtilelayers=str(FIPtilelayers).translate(None,"'").translate(None,"]").translate(None,"[")
+orthotilelayers = str(orthotilelayers).translate(None,"'").translate(None,"]").translate(None,"[")
+FIPtilelayers = str(FIPtilelayers).translate(None,"'").translate(None,"]").translate(None,"[")
 
 # WRITING SCRIPT FOR TOPOGRAPHICAL MAPS.
 
@@ -398,31 +397,31 @@ outFile.write('var id='+str(id)+'; \n')
 # Wtiting basemaps, overlays, and adding them to layer control.
 outFile.write('var baseLayers = {"OpenStreetMap": OSMbase,"Grayscale": grayscale,"Streets": streets}; \n') 
 outFile.write('var overlays = {"<b>Orthoimagery</b>":{'+str(orthotilelayers)+'},\n"<b>Fire Insurance Plans</b>":{'+str(FIPtilelayers)+'},"<b>Topographic Maps</b>":{"Hamilton": TopographyToggle'+'}, "<b>Aerial Photo Envelopes</b>":{"Hamilton": BoundsToggle'+'}};\n\n')
-LCGBasemaps='var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Orthoimagery","Fire Insurance Plans","Topographic Maps","Aerial Photo Envelopes"],collapsed:false}).addTo(map); \n\n'
+LCGBasemaps = 'var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Orthoimagery","Fire Insurance Plans","Topographic Maps","Aerial Photo Envelopes"],collapsed:false}).addTo(map); \n\n'
 outFile.write(LCGBasemaps)
 
 # WRITING SCRIPT FOR MAP FEATURES INCLUDING ITS SCALE AND LAYER OPACITY.
 
 # Adding a dynamic scale bar to the map, based on the map frame's visual extent.
-mapScale='L.control.scale({options: {position: \'bottomleft\',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map); \n\n'
+mapScale = 'L.control.scale({options: {position: \'bottomleft\',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map); \n\n'
 outFile.write(mapScale)
 
 # Adding an opacity slider to the map.
-opacFunction='slider = L.control.slider(function(value) {'
+opacFunction = 'slider = L.control.slider(function(value) {'
 outFile.write(opacFunction)
 
 # Adding the opacity slider feature to the orthoimagery overlays.
 for x in xrange(0,len(orthoyears)):
-	opacLayer='Hamilton_'+str(orthoyears[x])+'.setOpacity(value);'
+	opacLayer = 'Hamilton_'+str(orthoyears[x])+'.setOpacity(value);'
 	outFile.write(opacLayer)
 
 # Adding the opacity slider feature to the fire insurance plan overlays.
 for x in xrange(0,len(fipyears)):
-	opacLayer='FIP_'+str(fipyears[x])+'.setOpacity(value);'
+	opacLayer = 'FIP_'+str(fipyears[x])+'.setOpacity(value);'
 	outFile.write(opacLayer)
 
 # Adding the opacity slider feature to the topographic map overlays.
-opacTopo='Topography1919.setOpacity(value);Topography1927.setOpacity(value);Topography1934.setOpacity(value);Topography1943.setOpacity(value);Topography1950.setOpacity(value);Topography1951.setOpacity(value);Topography1952.setOpacity(value);Topography1953.setOpacity(value);Topography1954.setOpacity(value);Topography1955.setOpacity(value);Topography1956.setOpacity(value);Topography1958.setOpacity(value);Topography1959.setOpacity(value);Topography1960.setOpacity(value);Topography1961.setOpacity(value);Topography1962.setOpacity(value);Topography1963.setOpacity(value);Topography1964.setOpacity(value);Topography1965.setOpacity(value);Topography1966.setOpacity(value);Topography1967.setOpacity(value);Topography1969.setOpacity(value);Topography1970.setOpacity(value);Topography1972.setOpacity(value);Topography1978.setOpacity(value);Topography1980.setOpacity(value);Topography1985.setOpacity(value);Topography1988.setOpacity(value);Topography1990.setOpacity(value);Topography1994.setOpacity(value);Topography1997.setOpacity(value);Topography1999.setOpacity(value);Topography2000.setOpacity(value);},\n{position: "topright",max: 1,value: 1,step:0.05,size: "200px",collapsed: false,id: "slider"}).addTo(map);\n\n'
+opacTopo = 'Topography1919.setOpacity(value);Topography1927.setOpacity(value);Topography1934.setOpacity(value);Topography1943.setOpacity(value);Topography1950.setOpacity(value);Topography1951.setOpacity(value);Topography1952.setOpacity(value);Topography1953.setOpacity(value);Topography1954.setOpacity(value);Topography1955.setOpacity(value);Topography1956.setOpacity(value);Topography1958.setOpacity(value);Topography1959.setOpacity(value);Topography1960.setOpacity(value);Topography1961.setOpacity(value);Topography1962.setOpacity(value);Topography1963.setOpacity(value);Topography1964.setOpacity(value);Topography1965.setOpacity(value);Topography1966.setOpacity(value);Topography1967.setOpacity(value);Topography1969.setOpacity(value);Topography1970.setOpacity(value);Topography1972.setOpacity(value);Topography1978.setOpacity(value);Topography1980.setOpacity(value);Topography1985.setOpacity(value);Topography1988.setOpacity(value);Topography1990.setOpacity(value);Topography1994.setOpacity(value);Topography1997.setOpacity(value);Topography1999.setOpacity(value);Topography2000.setOpacity(value);},\n{position: "topright",max: 1,value: 1,step:0.05,size: "200px",collapsed: false,id: "slider"}).addTo(map);\n\n'
 outFile.write(opacTopo)
 
 # This script first creates variables for the corresponding set of aerial photo polygons
@@ -475,13 +474,11 @@ timesliderfunc = '$("body").mousemove(function() { \n layer(Number($("#newId").t
 outFile.write(timesliderfunc) 
 
 # Closing HTML file.
-closescript='</script> \n\n'
-closehtml='\n \n </html>'
+closescript = '</script> \n\n'
+closehtml = '\n \n </html>'
 outFile.write(closescript)
 outFile.write(closehtml)
-
 print ("Success. The Historical Hamilton Portal HTML file has been written to " + str(outfn) + ".")
-
 inFile.close()
 outFile.close()
 

@@ -6,11 +6,11 @@
 
 ### Resource: Master.tsv
 
-This TSV file is the latest downloaded version of the Google [Master Spreadsheet](https://docs.google.com/spreadsheets/d/180qQStP5EkeY_3a4eM5lXcDYv3QY4zFq4l5bx3BZ8m0/edit#gid=0) that stores all information for McMaster University’s Air Photo Collection to by appropriate Python scripts for Metadata and Air Photo Index creation.
+This TSV file is the latest downloaded version of the Google [Master Spreadsheet](https://docs.google.com/spreadsheets/d/180qQStP5EkeY_3a4eM5lXcDYv3QY4zFq4l5bx3BZ8m0/edit#gid=0) that stores all information for McMaster University’s Air Photo Collection using appropriate Python scripts for Metadata and Air Photo Index creation.
 
 ### Tool: Create-API.py
 
-Using Python 2.7.12, this script converts information from the master spreadsheet of aerial photo index metadata in TSV format into HTML format. In addition to base layer maps and markers for each aerial photo in the database, the HTML file created with this script includes layers of historic fire insurance plans, orthoimagery, topographical maps, and aerial photo envelopes. A tutorial modal that pops up upon opening the web-page is also included in the HTML file. Majority of the website's functionality is used with Leaflet (Version 0.7.3), an open-source JavaScript library for mobile-friendly interactive maps. All JavaScript and CSS files used for this script are contained within the same folder. Full descriptions for the script's functionality is found within it. Create-API.py was last updated in October 2017 and the Air Photo Index web-page has since been named the Historical Hamilton Portal.
+Using Python 2.7.12, this script converts information from the master spreadsheet of aerial photo index metadata in TSV format into HTML format. In addition to base layer maps and markers for each aerial photo in the database, the HTML file created with this script includes layers of historic fire insurance plans, orthoimagery, topographical maps, and aerial photo envelopes. A tutorial modal that pops up upon opening the web-page is also included in the HTML file. Majority of the website's functionality is used with Leaflet (Version 0.7.3), an open-source JavaScript library for mobile-friendly interactive maps. All JavaScript and CSS files used for this script are contained within the same folder. Full descriptions for the script's functionality is found within it. Create-API.py was last updated in March 2018 and the Air Photo Index web-page has since been named the Historical Hamilton Portal.
 
 The following steps are a quick guide in using Create-API.py to create or update the existing Air Photo Index web-page.
 
