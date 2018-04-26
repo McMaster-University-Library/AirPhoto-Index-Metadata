@@ -1,0 +1,101 @@
+.slider {
+  width: 98%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+.slider > .dragger {
+  background: grey;
+  width: 24px;
+  height: 24px;
+  margin-top: -12px !important;
+  -webkit-box-shadow: none;
+  left: 200px;
+  border: none;
+  border-radius: 50px;
+}
+.slider > .dragger:hover {
+	background: black;
+	opacity:0.5;
+}
+
+.slider > .track, .slider > .highlight-track {
+  background: #ccc;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: 10px;
+
+  border: 3px solid #bbb;
+  height: 4px;
+}
+
+.slider > .highlight-track {
+	background-color: #8DCA09;
+	border-color: none;
+}
+
+.slider> .track> .ticks {
+	border-left: 1.5px solid #888;
+    width: 1em;
+    height: 0.85em;
+	text-align: right;
+	z-index: -1;
+	position: absolute;
+}
+.output {
+	color: #000;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+	font-size: 22px;
+}
+.align-center {
+    display: block;
+    text-align: center;
+	font-size: 22px;
+	border: white;
+	font-weight: bold;
+}
+.align-left {
+	color: #888;
+	font-size: 18px;
+    display: block;
+	float: left;
+}
+.align-right {
+	color: #888;
+	font-size: 18px;
+    display: block;
+	float: right;
+}
+.leaflet-control-slider {
+	background: none repeat scroll 0% 0% #FFF;
+	border-radius: 5px;
+	padding-top: 12px;
+}
+.leaflet-control-slider.leaflet-control-slider-horizontal p.leaflet-control-slider-value {
+	width: 0px;
+	color: transparent;
+	border-right: 0px solid #CCC;
+}
+.leaflet-control-slider:after{  
+	content: "Opacity";
+	font-family: Segoe UI, Georgia;
+	position: absolute;
+	bottom: 3px;
+	left: 0;
+	right: 0;
+	height: 7px;
+	font-size: calc(11px + 0.3vh);
+	font-weight: bold;
+	text-align: center;
+	top: 3px;
+}
+.leaflet-control-slider.leaflet-control-slider-expanded p.leaflet-control-slider-value {
+    display: none !important;
+}

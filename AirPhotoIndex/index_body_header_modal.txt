@@ -1,0 +1,134 @@
+
+<body style="font-family:Segoe UI, Arial;">
+	
+	<header>
+		
+		<div class="logo">
+			<img src="http://www.mcmaster.ca/opr/html/opr/mcmaster_brand/visual_identity/download/full_colour.jpg" />
+		</div>
+		
+		<div id="buttonzone" style="right:1vw">
+		<button class="button" id="myBtn"><p>Tutorial</p></button>
+		<a href="http://library.mcmaster.ca/maps/FIP/FIP_Legend" style="text-decoration:none; margin-left: 0.8vw" target="_blank"><button class="button">FIP Legend</button></a>
+		<a href="https://library.mcmaster.ca/maps/" style="text-decoration:none" target="_blank"><button class="button">Contact</button></a>
+		</div>
+	
+		<hgroup>
+		<h1 style="font-size:1.4vw; margin-left:6vw;"><b>McMaster University Library | </b>Historical Hamilton Portal</h1>
+		</hgroup>
+
+	<!-------THE FOLLOWING IS FOR THE WELCOME PAGE POP-UP.--------->
+
+<!-- Trigger/Open The Modal -->
+		
+	
+	</header>
+
+<div id="map" style="width: 100vw; height: calc(95vh - 1.4vw - 96px); font-size: 12px;"></div> 
+	
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+  
+  <!-- Modal header -->
+		<div class="modal-header">
+		  <span class="close" style="font-size:calc(12px + 1vw)">x</span>
+		  <h2 style="font-size:calc(12px + 1vw); font-weight:bold;">WELCOME</h2><h2 style="font-size:calc(10px + 0.5vw); font-size-adjust:auto; font-style:italic">A Guide to the McMaster University Library's Historical Hamilton Portal</h2>
+		</div>
+
+		<div class="w3-content w3-display-container">
+
+		<a class="w3-btn-floating w3-hover-dark-grey w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
+		<a class="w3-btn-floating w3-hover-dark-grey w3-display-right" onclick="plusDivs(1)">&#10095;</a>
+		
+		<!-- Slide 1 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image0.png" style="width:100%">
+		  <div class="modal-footer">
+			Welcome to the McMaster University Library's Historical Hamilton Portal -- An interactive tool for finding and accessing aerial photos, fire insurance plans and other cartographic materials for the Hamilton area. <br><br> 
+			Close this window (or click on the map) to begin exploring.
+		  </div>
+		</div>
+		
+		<!-- Slide 2 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image1.png" style="width:100%">
+		  <div class="modal-footer">
+			The central location of each <b>aerial photo</b> in the collection is identified with a marker.
+			Where available, boundaries of aerial photos are indicated for each marker.
+			Explore our collection by navigating the map and using the time slider to select a year of interest.<br>
+		  </div>
+		</div>
+
+		<!-- Slide 3 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image6.png" style="width:100%">
+		  <div class="modal-footer">
+			Click on a <b>marker</b> for more information on an aerial photo, including an image preview, a link to a digital version, and the photo's geographic envelope highlighted in yellow, if available.
+		  </div>
+		</div>
+
+		<!-- Slide 4 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image3.png" style="width:100%">
+		  <div class="modal-footer">
+			Change the <b>base map</b> using the layer panel.
+		  </div>
+		</div>
+		
+		<!-- Slide 5 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image2.png" style="width:100%">
+		  <div class="modal-footer">
+			Explore a <b>historic fire insurance plan</b> layer by selecting it on the navigation panel. 
+			To view the fire insurance plan's citation, click anywhere on the plates of the plan.
+		  </div>
+		</div>
+
+		<!-- Slide 6 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image4.png" style="width:100%">
+		  <div class="modal-footer">
+			View a modern <b>orthoimagery</b> layer by selecting it on the navigation panel.<br>
+		Note: This feature is available only to McMaster users.
+		  </div>
+		</div>
+		
+		<!-- Slide 7 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image7.png" style="width:100%">
+		  <div class="modal-footer">
+			Explore <b>historic topographic maps</b> by selecting its layer on the navigation panel. Slide the time slider across years to view the most recent available topographic maps for the selected year.
+			To view the map's citation, click anywhere on the topographic map.
+		  </div>
+		</div>
+		
+		<!-- Slide 8 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image8.png" style="width:100%">
+		  <div class="modal-footer">
+			View <b>aerial photo envelopes</b> by selecting it on the navigation panel. Hover over locations to highlight an area and view the extent of geography the aerial photo collection covers. Slide the time slider across years to view available envelopes for the selected year.
+		  </div>
+		</div>
+		
+		<!-- Slide 9 -->
+		<div class="w3-display-container mySlides">
+		  <img src="image5.png" style="width:100%">
+		  <div class="modal-footer">
+			Use the opacity slider to blend layers together. 
+		  </div>
+		</div>
+		
+		</div>
+		
+		<!---Slide changes end.--->
+	
+	</div>
+</div>	
+
+<script src="window.js"></script>
+
+<!---------------------END OF WELCOME PAGE POP-UP.------------------------>
+

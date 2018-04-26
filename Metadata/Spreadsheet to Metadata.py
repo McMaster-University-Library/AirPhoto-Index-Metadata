@@ -1,6 +1,10 @@
 import os
-inFile=open(input('Input location of the Master Spreadsheet (.tsv) within quotations and press enter: '))
+import shutil
+#inFile=open(input('Input location of the Master Spreadsheet (.tsv) within quotations and press enter: '))
+dir="C:/Users/aharonjr/Documents/Master_Spreadsheet"
 
+os.chdir(dir)
+inFile=open('Master_Spreadsheet_Current.tsv','r')
 #READ CSV FILE AND GATHER UNIQUE YEARS
 allcontent=inFile.readlines() #Read csv and group contents line by line
 content=allcontent[2:2752] #Remove the first two lines from the content
