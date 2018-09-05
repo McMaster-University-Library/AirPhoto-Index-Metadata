@@ -1,6 +1,8 @@
 ##Notes on changes:
 
 - Best to run a diff on everything in the top 87 lines. I had to convert all http to https, which meant finding new libraries in a variety of places.
+
+###Leaflet upgrade
 - I've updated the leaflet library to 0.7.7 using [this site](https://cdnjs.com/libraries/leaflet/) as a guide; however, if I upgrade to any newer verion, I get an error message:
 
 ```
@@ -16,6 +18,11 @@ Uncaught TypeError: Cannot read property 'trim' of undefined
 
 This needs to be investigated.
 
+###Changed link to buttons:
+- changed "FIP Legend" link to https://library.mcmaster.ca/collections/fire-insurance-plans#tab-key-symbols
+- changed "Contact" link to https://library.mcmaster.ca/services/maps-geographical-resource-services#tab-instructional-support
+
+###Changes from http to https:
 - change all 
 http://library.mcmaster.ca/maps/airphotos/thumbnails/image_not_available.png
 to 
