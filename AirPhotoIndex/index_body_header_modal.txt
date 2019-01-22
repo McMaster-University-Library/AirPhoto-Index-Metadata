@@ -4,13 +4,13 @@
 	<header>
 		
 		<div class="logo">
-			<img src="http://www.mcmaster.ca/opr/html/opr/mcmaster_brand/visual_identity/download/full_colour.jpg" />
+			<img src="mcm-library_left-col.png" />
 		</div>
 		
 		<div id="buttonzone" style="right:1vw">
 		<button class="button" id="myBtn"><p>Tutorial</p></button>
-		<a href="http://library.mcmaster.ca/maps/FIP/FIP_Legend" style="text-decoration:none; margin-left: 0.8vw" target="_blank"><button class="button">FIP Legend</button></a>
-		<a href="https://library.mcmaster.ca/maps/" style="text-decoration:none" target="_blank"><button class="button">Contact</button></a>
+		<a href="https://library.mcmaster.ca/collections/fire-insurance-plans#tab-key-symbols" style="text-decoration:none; margin-left: 0.8vw" target="_blank"><button class="button">FIP Legend</button></a>
+		<a href="https://library.mcmaster.ca/services/maps-geographical-resource-services#tab-instructional-support" style="text-decoration:none" target="_blank"><button class="button">Contact</button></a>
 		</div>
 	
 		<hgroup>

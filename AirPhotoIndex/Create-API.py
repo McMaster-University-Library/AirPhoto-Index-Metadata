@@ -118,7 +118,7 @@ outFile.write(scripts)
 
 # Defining marker colours for each image of the marker hosted on the MDG wordpress blog.
 markercolours = ['blue', 'orange', 'green', 'purple', 'yellow', 'red', 'pink', 'gray', 'maroon', 'brown', 'lightblue', 'lightgreen']
-shadowURL = '\'http://en.unesco.org/sites/all/libraries/leaflet/images/marker-shadow.png\''
+shadowURL = '\'https://en.unesco.org/sites/all/libraries/leaflet/images/marker-shadow.png\''
 
 # Creating an icon for each colour from the markercolours array.
 for colour in markercolours:
@@ -249,7 +249,7 @@ for x in xrange(0, len(timelineyears)):
 			
 			if flightline == flightlineset[y] and str(timelineyears[x]) == year:
 
-				if envelope == "":
+				if envelope.isspace():
 
 					# Creating each marker if envelopes are not available for the aerial photo.
 					markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\'); \n'
@@ -259,10 +259,11 @@ for x in xrange(0, len(timelineyears)):
 					markerarray.append(str(str(identifier)+str(timelineyears[x]))+str(cflightline)+str(cphoto)+str(iTitle))
 
 				else:
-
 					# Creating each marker if envelopes are available for the aerial photo.
 					markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\').on({click: function Click'+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'(e) '+str(envelope)+'}); \n'
 					outFile.write(markers)
+
+					print(type(envelope))
 
 					# Appending the name of individual markers to a set of all markers for the same flightline.
 					markerarray.append(str(str(identifier)+str(timelineyears[x]))+str(cflightline)+str(cphoto)+str(iTitle))
@@ -372,7 +373,7 @@ outFile.write(BoundsToggle)
 # WRITING SCRIPT FOR BASEMAPS, DEFAULT BASE MAP, AND MAP OVERLAYS.
 
 # Writing javascript for basemaps OpenStreetMap, Streets, and Grayscale.
-Basemaps = "var mbAttr = 'Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, ' +\n'<a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, ' +\n'Imagery © <a href=\"http://mapbox.com\">Mapbox</a>' \nvar osmattr='Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, ' +\n'<a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>'\nvar mbUrl2 = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoibmlja2x1eW1lcyIsImEiOiJjaWhzM2dsem4wMGs2dGZraGY1MzN3YmZ2In0.fDtuZ8EU3C5330xaVS4l6A'\nvar grayscale = L.tileLayer(mbUrl2,{id: 'mapbox.light',maxZoom: 19, attribution: mbAttr}),\nOSMbase = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,attribution: osmattr}),\nstreets =    L.tileLayer(mbUrl2,{id: 'mapbox.high-contrast',maxZoom: 19, attribution: mbAttr});\n\n"
+Basemaps = "var mbAttr = 'Map data &copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a> contributors, ' +\n'<a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, ' +\n'Imagery © <a href=\"https://mapbox.com\">Mapbox</a>' \nvar osmattr='Map data &copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a> contributors, ' +\n'<a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>'\nvar mbUrl2 = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoibmlja2x1eW1lcyIsImEiOiJjaWhzM2dsem4wMGs2dGZraGY1MzN3YmZ2In0.fDtuZ8EU3C5330xaVS4l6A'\nvar grayscale = L.tileLayer(mbUrl2,{id: 'mapbox.light',maxZoom: 19, attribution: mbAttr}),\nOSMbase = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,attribution: osmattr}),\nstreets =    L.tileLayer(mbUrl2,{id: 'mapbox.high-contrast',maxZoom: 19, attribution: mbAttr});\n\n"
 outFile.write(Basemaps)
 
 # Creating map with OpenStreetMap as the default base layer.
