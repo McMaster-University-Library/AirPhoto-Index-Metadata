@@ -263,8 +263,6 @@ for x in xrange(0, len(timelineyears)):
 					markers = 'var '+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'=L.marker(['+str(latitude)+','+str(longitude)+'], {icon: '+str(markercolours[y])+'Icon, time: "'+str(fulldate)+'"}).bindPopup(\''+str(thumbnailscript)+'<br><strong>Set Name</strong> '+str(identifier)+' '+str(fulldate)+' <br><strong>Photo Date</strong> '+str(item[4])+' <br><strong>Flight Line</strong> '+str(flightline)+'<br> <strong>Photo</strong> '+str(iphoto)+'<br> <strong>Scale</strong> '+str(scale)+'<br> <strong>Citation</strong> '+str(citationa)+'<i>'+str(citationb)+'</i>'+str(citationc)+'<br> '+str(archivelinkscript)+'\').on({click: function Click'+str(identifier)+str(timelineyears[x])+str(cflightline)+str(cphoto)+str(iTitle)+'(e) '+str(envelope)+'}); \n'
 					outFile.write(markers)
 
-					print(type(envelope))
-
 					# Appending the name of individual markers to a set of all markers for the same flightline.
 					markerarray.append(str(str(identifier)+str(timelineyears[x]))+str(cflightline)+str(cphoto)+str(iTitle))
 				
