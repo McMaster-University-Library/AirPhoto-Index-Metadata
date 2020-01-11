@@ -74,10 +74,14 @@ for year in timelineyears:
         for line in content:
                 item = line.split('\t')
 
+                # test line to investigate why 1919 is not failing the following if statement.
+                #if str(item[17][:4]) == "1919":
+                #        print item[40] 
+
                 if str(item[17][:4]) == str(year) and item[40] != '':
                         javascriptfeature.append(item[40])
       
-        with open("C:\Home\Air-Photo-Index\AirPhoto-Index-Metadata\AirPhotoIndex\data\Boundaries" + str(year) + ".js", 'w') as file:
+        with open("data\Boundaries" + str(year) + ".js", 'w') as file:
                 file.write("var boundaries" + str(year) + """ = {"type": "FeatureCollection", "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } }, "features":
                 """
                 + str(javascriptfeature).replace("'", "") + str("};"))
