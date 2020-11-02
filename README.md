@@ -2,6 +2,16 @@
 
 **This repository is a resource to create an Air Photo Index presented as an online interactive map. Additional features to this map include historic fire insurance plans, orthoimagery, topographical maps, aerial photo envelopes, and a tutorial modal. Access the current Air Photo Index [here.](http://library.mcmaster.ca/maps/aerialphotos/index.html)**
 
+## Change History
+
+### 2020-11-02 (JJB)
+- Updated path to tiles (FIPs, Orthos, Topos)
+- For FIPs, changed reference in Create-API.py from ```http://perec.mcmaster.ca/maps``` to ```https://library.mcmaster.ca/tiles/```
+- For Orthos, changed reference in Create-API.py from ```http://tiles.mcmaster.ca``` to ```https://library.mcmaster.ca/tiles/```
+- For Topos, changed all references in ```index_body_topography.txt``` from ```http://perec.mcmaster.ca/maps``` to ```https://library.mcmaster.ca/tiles/```
+- Updated links to FIP collection information in ```index_body_fire.txt```
+
+
 ## Folder: AirPhotoIndex
 
 ### Resource: Master.tsv
