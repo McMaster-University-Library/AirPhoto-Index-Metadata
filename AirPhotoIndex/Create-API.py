@@ -321,14 +321,14 @@ for x in xrange(0, len(uniqueyears)):
 	# Appends layers for each year of orthoimagery to the orthoimagery tile layer group.
 	if uniqueyears[x] in orthoyears:
 		
-		layer = "var Hamilton_"+str(uniqueyears[x])+" = L.tileLayer('http://tiles.mcmaster.ca/Hamilton_"+str(uniqueyears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
+		layer = "var Hamilton_"+str(uniqueyears[x])+" = L.tileLayer('https://library.mcmaster.ca/tiles/Hamilton_"+str(uniqueyears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 19});\n"
 		orthotilelayers.append('\"Hamilton '+str(uniqueyears[x])+'\": Hamilton_'+str(uniqueyears[x]))
 		outFile.write(layer)
 
 	# Appends layers for each year of fire insurance plans to the FIP tile layer group.
 	elif uniqueyears[x] in fipyears:
 		
-		layer = "var FIP_"+str(uniqueyears[x])+" = L.tileLayer('http://perec.mcmaster.ca/maps/FIP_"+str(uniqueyears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});\n"
+		layer = "var FIP_"+str(uniqueyears[x])+" = L.tileLayer('https://library.mcmaster.ca/tiles/FIP_"+str(uniqueyears[x])+"/{z}/{x}/{y}.png', {format: 'image/png',tms: true,noWrap: true,maxZoom: 20});\n"
 		outFile.write(layer)
 		
 		# Writing fire insurance plans as GeoJSON objects by year.
