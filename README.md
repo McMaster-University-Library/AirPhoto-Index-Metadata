@@ -11,6 +11,22 @@
 - For Topos, changed all references in ```index_body_topography.txt``` from ```http://perec.mcmaster.ca/maps``` to ```https://library.mcmaster.ca/tiles/```
 - Updated links to FIP collection information in ```index_body_fire.txt```
 
+## Process for adding more photos to the Air Photo Index
+1. Scan the images with the feed-through scanner
+- Find a good spot on the scanner to feed in images -- hitting two rollers
+- Follow the established naming convention for the images
+2. Create metadata files
+- [Christine] Copy metadata from [Aerial Photo Master List](https://docs.google.com/spreadsheets/d/180qQStP5EkeY_3a4eM5lXcDYv3QY4zFq4l5bx3BZ8m0/edit#gid=0) to a new tab on the [Bulk metadata template google sheet](https://docs.google.com/spreadsheets/d/1xmSuWdqUQ0a9RNCi2DErNO1bBcK6J06ps0moyYkg4Qk/edit#gid=1991707764) 
+- More info here: https://github.com/McMaster-University-Library/Digital-Archive-Tools/tree/master/BulkTools
+3. Bulk ingest
+- Suggest we try zipping and using the built-in bulk ingester (Jay)
+4. [Jay] Update Aerial Photo Master sheet
+- Digital Archive URL (via updating the DigArc-Id2URL-ToMerge tab)
+5. (one time only) Add accessibility items
+- Review changes made to index.html; make related changes to Create-API.py and all .txt files in the top-level directory
+6. Export the Master Sheet; process with python script 
+7. copy index.html file to the server.
+
 
 ## Folder: AirPhotoIndex
 
