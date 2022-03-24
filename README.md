@@ -15,6 +15,7 @@
 1. Scan the images with the feed-through scanner
 - Find a good spot on the scanner to feed in images -- hitting two rollers
 - Follow the established naming convention for the images
+- [Internal scanning intstructions](https://docs.google.com/document/d/1BbmKHinXS_xmfCYKsvTkttX6oUojLWhQc5AQQo2W13U/edit)
 2. Create metadata files
 - [Christine] Copy metadata from [Aerial Photo Master List](https://docs.google.com/spreadsheets/d/180qQStP5EkeY_3a4eM5lXcDYv3QY4zFq4l5bx3BZ8m0/edit#gid=0) to a new tab on the [Bulk metadata template google sheet](https://docs.google.com/spreadsheets/d/1xmSuWdqUQ0a9RNCi2DErNO1bBcK6J06ps0moyYkg4Qk/edit#gid=1991707764) 
 - More info here: https://github.com/McMaster-University-Library/Digital-Archive-Tools/tree/master/BulkTools
