@@ -26,7 +26,9 @@
 5. (one time only) Add accessibility items
 - Review changes made to index.html; make related changes to Create-API.py and all .txt files in the top-level directory
 6. Export the Master Sheet; process with python script 
-7. copy index.html file to the server.
+7. Copy the index.html file to the test server -- more information [here](https://github.com/McMaster-University-Library/gis-data-reference-documents/blob/main/lists.md#list-of-map-indexes). 
+8. Confirm the changes are applied as expected and no other issues exist.
+7. Copy index.html file to the production server.
 
 
 ## Folder: AirPhotoIndex
