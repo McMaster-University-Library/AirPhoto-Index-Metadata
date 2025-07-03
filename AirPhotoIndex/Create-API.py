@@ -375,7 +375,7 @@ outFile.write(BoundsToggle)
 # WRITING SCRIPT FOR BASEMAPS, DEFAULT BASE MAP, AND MAP OVERLAYS.
 
 # Writing javascript for basemaps OpenStreetMap, Streets, and Grayscale.
-Basemaps = "var mbAttr = 'Map data &copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a> contributors, ' +\n'<a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, ' +\n'Imagery © <a href=\"https://mapbox.com\">Mapbox</a>' \nvar osmattr='Map data &copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a> contributors, ' +\n'<a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>'\nvar mbUrl2 = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoibmlja2x1eW1lcyIsImEiOiJjaWhzM2dsem4wMGs2dGZraGY1MzN3YmZ2In0.fDtuZ8EU3C5330xaVS4l6A'\nvar grayscale = L.tileLayer(mbUrl2,{id: 'mapbox.light',maxZoom: 19, attribution: mbAttr}),\nOSMbase = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,attribution: osmattr}),\nstreets =    L.tileLayer(mbUrl2,{id: 'mapbox.high-contrast',maxZoom: 19, attribution: mbAttr});\n\n"
+Basemaps = "var osmattr='Map data &copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a> contributors, ' +\n'<a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>'\nOSMbase = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,attribution: osmattr})\n\n"
 outFile.write(Basemaps)
 
 # Creating map with OpenStreetMap as the default base layer.
@@ -398,7 +398,7 @@ id = str(id).replace("'","")
 outFile.write('var id='+str(id)+'; \n')
 
 # Wtiting basemaps, overlays, and adding them to layer control.
-outFile.write('var baseLayers = {"OpenStreetMap": OSMbase,"Grayscale": grayscale,"Streets": streets}; \n') 
+outFile.write('var baseLayers = {"OpenStreetMap": OSMbase}; \n') 
 outFile.write('var overlays = {"<b>Orthoimagery</b>":{'+str(orthotilelayers)+'},\n"<b>Fire Insurance Plans</b>":{'+str(FIPtilelayers)+'},"<b>Topographic Maps</b>":{"Hamilton": TopographyToggle'+'}, "<b>Aerial Photo Envelopes</b>":{"Hamilton": BoundsToggle'+'}};\n\n')
 LCGBasemaps = 'var control = L.control.groupedLayers(baseLayers, overlays,{exclusiveGroups: ["Orthoimagery","Fire Insurance Plans","Topographic Maps","Aerial Photo Envelopes"],collapsed:false}).addTo(map); \n\n'
 outFile.write(LCGBasemaps)
