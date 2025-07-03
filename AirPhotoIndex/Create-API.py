@@ -31,11 +31,11 @@ outfn = 'index.html'
 # Checking if output filename exists and removing it if it does.
 if os.path.exists(outfn):
 	
-	print 'It appears that ' + outfn + ' already exists! Please wait while it is removed and replaced...' 
+	print('It appears that ' + outfn + ' already exists! Please wait while it is removed and replaced...')
 	os.remove(outfn)
 	
 else:
-	print outfn +' does not already exist! Please wait while it is created...'
+	print(outfn +' does not already exist! Please wait while it is created...')
 
 # Opening the output file this script will write to.
 outFile = open(outfn, 'w') 
@@ -62,7 +62,7 @@ for line in content:
 
 # Obtaining the set of unique years used for the timeslider, and sorting them in ascending order.
 timelineyears = sorted(set(years))
-timelineyears = map(int,timelineyears)
+timelineyears = list(map(int,timelineyears))
 
 # CREATING NECCESSARY JAVASCRIPT DATA FILES.
 
@@ -147,7 +147,7 @@ yearlayers = [] # Creating list of layer groups by year.
 id = {} # Creating dictionary of labelled layer groups by year (ex. '1919: Hamilton 1919').
 
 # Obtaining corresponding metadata for each timeline year.
-for x in xrange(0, len(timelineyears)):
+for x in range(0, len(timelineyears)):
 
 	z = 1
 
@@ -178,7 +178,7 @@ for x in xrange(0, len(timelineyears)):
 		item=line.split('\t')
 
 		# Removing quotations from any items in the TSV file to be read by javascript.
-		for z in xrange (0, len(item)-1):
+		for z in range (0, len(item)-1):
 			interest = item[z]
 			if interest.startswith('"') and interest.endswith('"'):
 				item[z] = interest[1:-1]
@@ -216,21 +216,21 @@ for x in xrange(0, len(timelineyears)):
 			iphoto = photo
 
 		# Formatting information.
-		cflightline = flightline.translate(None,"-")
-		cflightline = cflightline.translate(None,"?")
-		cflightline = cflightline.translate(None,"/")
-		cflightline = cflightline.translate(None,"\'")
-		cphoto = photo.translate(None," ")
-		cphoto = cphoto.translate(None,"[")
-		cphoto = cphoto.translate(None,"]")
-		cphoto = cphoto.translate(None,"/")
-		iTitle = iTitle.translate(None," ")
-		iTitle = iTitle.translate(None,"-")
-		iTitle = iTitle.translate(None," ")
-		iTitle = iTitle.translate(None,"[")
-		iTitle = iTitle.translate(None,"]")
-		iTitle = iTitle.translate(None,"/")
-		iTitle = iTitle.translate(None,",")
+		cflightline = flightline.replace("-","")
+		cflightline = cflightline.replace("?","")
+		cflightline = cflightline.replace("/","")
+		cflightline = cflightline.replace("\'","")
+		cphoto = photo.replace(" ","")
+		cphoto = cphoto.replace("[","")
+		cphoto = cphoto.replace("]","")
+		cphoto = cphoto.replace("/","")
+		iTitle = iTitle.replace(" ","")
+		iTitle = iTitle.replace("-","")
+		iTitle = iTitle.replace(" ","")
+		iTitle = iTitle.replace("[","")
+		iTitle = iTitle.replace("]","")
+		iTitle = iTitle.replace("/","")
+		iTitle = iTitle.replace(",","")
 
 		# If a link to the Digital Archive exists, this writes the neccessary HTML code.
 		if archivelink != "":
@@ -249,7 +249,7 @@ for x in xrange(0, len(timelineyears)):
 		# !IMPORTANT! # To make all aerial photos of the same flightline the same colour,
 		# !IMPORTANT! # the list markerarray is created to store aerial photos for the same
 		# !IMPORTANT! # flightline and timeline year.
-		for y in xrange (0, len(flightlineset)):
+		for y in range (0, len(flightlineset)):
 			
 			if flightline == flightlineset[y] and str(timelineyears[x]) == year:
 
@@ -279,8 +279,8 @@ for x in xrange(0, len(timelineyears)):
 	# Sorting and removing quotation from arrays to be read in javascript.
 	markerarray = sorted(set(markerarray))
 	layerarray = sorted(set(layerarray))
-	markerarrayNQ = str(markerarray).translate(None,"'")
-	layerarrayNQ = str(layerarray).translate(None,"'")
+	markerarrayNQ = str(markerarray).replace("'","")
+	layerarrayNQ = str(layerarray).replace("'","")
 
 	# Grouping all markers by flightline in a marker cluster group.
 	markerGroup = 'var Markers'+str(timelineyears[x])+'=L.markerClusterGroup({disableClusteringAtZoom:13}).addLayers('+str(markerarrayNQ)+'); \n \n'
@@ -316,7 +316,7 @@ for line in indexbodyfire:
 	outFile.write(line)
 
 # Appends layers to respective tile layer groups.
-for x in xrange(0, len(uniqueyears)):
+for x in range(0, len(uniqueyears)):
 
 	# Appends layers for each year of orthoimagery to the orthoimagery tile layer group.
 	if uniqueyears[x] in orthoyears:
@@ -352,8 +352,8 @@ orthotilelayers = sorted(set(orthotilelayers))
 FIPtilelayers = sorted(set(FIPtilelayers))
 
 # Removing unneccessary characters before adding the list to the HTML script.
-orthotilelayers = str(orthotilelayers).translate(None,"'").translate(None,"]").translate(None,"[")
-FIPtilelayers = str(FIPtilelayers).translate(None,"'").translate(None,"]").translate(None,"[")
+orthotilelayers = str(orthotilelayers).replace("'","").replace("]","").replace("[","")
+FIPtilelayers = str(FIPtilelayers).replace("'","").replace("]","").replace("[","")
 
 # WRITING SCRIPT FOR TOPOGRAPHICAL MAPS.
 
@@ -383,18 +383,18 @@ Lmap = 'var map=L.map(\'map\', {center:[43.26,-79.89],zoom: 11,layers:[OSMbase]}
 outFile.write(Lmap)
 
 # Adding dynamic zooming to the extent of the fire insurance plan overlays.
-FIPbounds = str(FIPbounds).translate(None,"'")
+FIPbounds = str(FIPbounds).replace("'","")
 outFile.write('var FIP=L.featureGroup('+str(FIPbounds)+'); \n')
 outFile.write("map.on('layeradd', function (e) {if (FIP.hasLayer(e.layer)){(map.fitBounds(e.layer.getBounds()))};})\n\n")
 
 # Creating a layer group called 'Years' for all layers for all years.
-yearlayers = str(yearlayers).translate(None,"'")
+yearlayers = str(yearlayers).replace("'","")
 outFile.write('var Years=L.layerGroup('+str(yearlayers)+'); \n\n')
 
 # Writing the dictionary of labelled layer groups by year (ex. '1919: Hamilton 1919').
 # Leaflet recognizes the layer, 'Hamilton 1919' associated with the '1919' in order to
 # select the corresponding layers for each year on the timeslider.
-id = str(id).translate(None,"'")
+id = str(id).replace("'","")
 outFile.write('var id='+str(id)+'; \n')
 
 # Wtiting basemaps, overlays, and adding them to layer control.
@@ -414,12 +414,12 @@ opacFunction = 'slider = L.control.slider(function(value) {'
 outFile.write(opacFunction)
 
 # Adding the opacity slider feature to the orthoimagery overlays.
-for x in xrange(0,len(orthoyears)):
+for x in range(0,len(orthoyears)):
 	opacLayer = 'Hamilton_'+str(orthoyears[x])+'.setOpacity(value);'
 	outFile.write(opacLayer)
 
 # Adding the opacity slider feature to the fire insurance plan overlays.
-for x in xrange(0,len(fipyears)):
+for x in range(0,len(fipyears)):
 	opacLayer = 'FIP_'+str(fipyears[x])+'.setOpacity(value);'
 	outFile.write(opacLayer)
 
@@ -481,7 +481,7 @@ closescript = '</script> \n\n'
 closehtml = '\n \n </html>'
 outFile.write(closescript)
 outFile.write(closehtml)
-print ("Success. The Historical Hamilton Portal HTML file has been written to " + str(outfn) + ".")
+print("Success. The Historical Hamilton Portal HTML file has been written to " + str(outfn) + ".")
 inFile.close()
 outFile.close()
 
